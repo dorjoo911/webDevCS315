@@ -1,0 +1,48 @@
+body {
+  margin: 20px;
+  background: linear-gradient(to top, gray, 20%, white);
+}
+h1 {
+  color: darkgreen;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+h2 {
+  color: darkblue;
+}
+hr {
+  height: 2px;
+}
+img {
+  height: 100px;
+  border-radius: 5px;
+}
+.check {
+  border-style: none;
+  width: 88px;
+  height: 31px;
+}
+
+ul,
+ol {
+  font-style: italic;
+}
+li a {
+  color: darkred;
+  display: inline;
+  font-weight: bolder;
+  text-decoration: none;
+}
+
+p b {
+  color: limegreen;
+}
+p:first-letter {
+  color: darkred;
+  font-family: Georgia;
+  font-weight: bolder;
+  initial-letter: 1.5;
+}
