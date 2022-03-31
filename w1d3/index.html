@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <script src="app.js"></script>
+    <script src="table.js"></script>
+    <div id="inOut">
+      <p>Input</p>
+      <input id="input_2" value="" />
+      <p>Output</p>
+      <textarea id="textarea_2"></textarea><br />
+      <button type="button" id="outBtn" onclick="clickToAdd()">
+        Click to add
+      </button>
+    </div>
+
+    <div id="operate">
+      <p>First Value</p>
+      <input id="firstInput_3" value="0" />
+      <p>Second Value</p>
+      <input id="secondInput_3" value="0" /><br />
+      <p>Operation:</p>
+      <button type="button" id="btnAdd" onclick="add()">+</button>
+      <button type="button" id="btnSub" onclick="sub()">-</button>
+      <button type="button" id="btnMul" onclick="mul()">*</button>
+      <p>Result</p>
+      <p id="resultInput_3">0</p>
+    </div>
+
+    <div id="inventory">
+      <h2>Inventory</h2>
+      <p>Item Name:</p>
+      <input id="inputItem_4" value="insert product name" />
+      <p>Item Category:</p>
+      <input id="inputCategory_4" value="insert category" />
+      <p>Quantity:</p>
+      <input id="inputQuantidy_4" value="insert quantity" /><br />
+      <button type="button" id="inventtoryBtn" onclick="createTable()">
+        Add
+      </button>
+      <button type="button" id="deleteBtn" onclick="deleteRow()">Delete</button>
+      <table class="myTable">
+        <tr>
+          <th>Product Name</th>
+          <th>Category</th>
+          <th>Quantity</th>
+        </tr>
+      </table>
+      <table id="myTable"></table>
+    </div>
+  </body>
+</html>

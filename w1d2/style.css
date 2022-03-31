@@ -46,3 +46,11 @@ p:first-letter {
   font-weight: bolder;
   initial-letter: 1.5;
 }
+p {
+  text-indent: 50px;
+  text-transform: capitalize;
+}
+
+h1 {
+  text-shadow: 2px 2px red;
+}
