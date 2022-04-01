@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header role="banner">
+      <span>Vedas</span>
+
+      <span>Upanishads</span>
+
+      <nav id="mastLogin">
+        <div>
+          <p>
+            <a title="Academic alerts">
+              <span>Taitreya</span>
+
+              <ul>
+                <li>Markandeya</li>
+              </ul>
+
+              <span>Isha Vyasa</span>
+            </a>
+
+            <a>
+              <span>Rig Veda</span>
+            </a>
+          </p>
+        </div>
+
+        <div>
+          <a title="View All Sites">
+            <i class="sites-icon"></i>
+
+            <span class="all-sites">Sites</span>
+          </a>
+        </div>
+
+        <ul>
+          <li>Mind</li>
+        </ul>
+      </nav>
+    </header>
+  </body>
+</html>
+
+<!-- 
+    a. Find the elements with document.querySelectorAll("div a span") 
+    b. Find the elements with document.querySelectorAll("div > a"); 
+    c. Find the elements with document.querySelectorAll("#mastLogin div ul"); 
+    d. Find the elements with document.querySelectorAll("span ~ i"); -->
+<script>
+  let a = document.querySelectorAll("div a span"); //Taitreya
+
+  document.querySelectorAll("div > a"); //<a title="Academic alerts">
+  document.querySelectorAll("#mastLogin div ul"); //Mind
+  document.querySelectorAll("span ~ i"); //<i class="sites-icon"></i>
+</script>

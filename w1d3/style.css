@@ -1,11 +1,9 @@
 #inOut {
   background: rgb(175, 233, 67);
 }
-input,
-textarea,
-button,
-p {
-  margin: 5px;
+
+textarea {
+  width: 100%;
 }
 #operate {
   background-color: aquamarine;
@@ -29,40 +27,33 @@ div input {
   width: 95%;
   padding: 10px;
 }
+.inventoryBtn {
+  color: white;
+  border-radius: 3px;
+}
 #inventtoryBtn {
-  text-align: center;
   background-color: green;
   color: white;
   border-radius: 3px;
-  margin: 10px;
   padding: 10px;
-  width: 10%;
 }
 #deleteBtn {
-  text-align: center;
   background-color: red;
-  color: white;
-  border-radius: 3px;
-  margin: 10px;
-  padding: 10px;
-  width: 10%;
+}
+#editBtn {
+  background-color: yellow;
+  color: black;
 }
 #myTable {
   text-align: left;
-  width: 99%;
+  width: 100%;
 }
-.myTable {
-  text-align: left;
-  width: 99%;
-}
+
 th {
   background-color: blue;
   color: white;
-  padding: 10px;
 }
-table,
-td,
-th {
-  border-collapse: collapse;
-  padding: 10px;
+
+tr:hover {
+  background-color: #ffff99;
 }
