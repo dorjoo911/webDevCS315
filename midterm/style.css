@@ -1,0 +1,43 @@
+.inline-block {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.validation {
+  color: red;
+  display: none;
+}
+
+input {
+  border: 1px solid black;
+}
+
+ul {
+  padding-inline-start: 15px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 50%;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+.choose {
+  display: none;
+}
+th {
+  background: green;
+}
+/* tr:hover {
+  background: yellowgreen;
+} */
+#myTable > tbody:nth-child(5),
+#myTable > tbody:nth-child(6),
+#myTable > tbody:nth-child(7) {
+  background: yellowgreen;
+}

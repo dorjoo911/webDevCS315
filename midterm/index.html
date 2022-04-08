@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sites</title>
+    <style>
+      .inline-block {
+        display: inline-block;
+        vertical-align: top;
+      }
+
+      .validation {
+        color: red;
+        display: none;
+      }
+
+      input {
+        border: 1px solid black;
+      }
+
+      ul {
+        padding-inline-start: 15px;
+      }
+
+      table {
+        border-collapse: collapse;
+        width: 50%;
+      }
+
+      td,
+      th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+      .choose {
+        display: none;
+      }
+      th {
+        background: green;
+      }
+      /* tr:hover {
+  background: yellowgreen;
+} */
+      #myTable > tbody:nth-child(5),
+      #myTable > tbody:nth-child(6),
+      #myTable > tbody:nth-child(7) {
+        background: yellowgreen;
+      }
+    </style>
+    <script>
+      window.onload = function () {
+        const addBtn = document.getElementById("btn");
+        const removeBtn = document.getElementById("remove");
+        const site = document.querySelector("#site");
+        const tableCheckbox = document.getElementById("table");
+        const listCheckbox = document.getElementById("list");
+
+        const siteName = document.getElementById("siteName");
+        const siteAddress = document.getElementById("url");
+        const siteKeywords = document.getElementById("keywords");
+
+        const validationTag = document.getElementsByClassName("validation")[0];
+
+        site.onclick = sortSiteName; //onclick not work
+
+        removeBtn.onclick = removeItem;
+        console.log("site :>> ", site);
+        let checked = { isTableChecked: false, isListChecked: false };
+
+        let tableData = [];
+        let listData = [];
+
+        function isValid() {
+          if (!siteName.value || !siteAddress.value || !siteKeywords.value) {
+            return false;
+          }
+          return true;
+        }
+
+        function createList() {
+          const listContainer = document.getElementById("listAll");
+          listContainer.innerHTML = "";
+
+          listData.forEach((value) => {
+            const keywordList = value.siteKeywords.split(",");
+            let list = "";
+
+            keywordList.forEach((element) => {
+              list += `<li>${element}</li>`;
+            });
+
+            listContainer.innerHTML += `<a href="${value.siteAddress}">${value.siteName}</a>${list}</ul>`;
+            if (value.siteName == "amazon") {
+              listContainer.style.color = "green";
+            }
+          });
+        }
+
+        function createTable() {
+          const tableContainer = document.getElementById("myTable");
+          tableContainer.innerHTML = "";
+
+          tableContainer.innerHTML =
+            "<tr><th id='site'>Site Name</th><th>Keywords</th></tr>";
+
+          tableData.forEach((value) => {
+            tableContainer.innerHTML += `<tr>
+        <td>
+        <a href="${value.siteAddress}">${value.siteName}</a>
+        </td>
+        <td>${value.siteKeywords}</td>
+      `;
+          });
+          // console.log("object :>> ", tableContainer.children);
+        }
+
+        addBtn.addEventListener("click", function (e) {
+          if (isValid() && (checked.isTableChecked || checked.isListChecked)) {
+            validationTag.style.display = "none";
+            siteName.style.borderColor = "black";
+            const siteNameVal = siteName.value;
+            const siteAddressVal = siteAddress.value;
+            const siteKeywordsVal = siteKeywords.value;
+
+            const temp = {
+              siteName: siteNameVal,
+              siteAddress: siteAddressVal,
+              siteKeywords: siteKeywordsVal,
+            };
+
+            if (checked.isTableChecked && checked.isListChecked) {
+              tableData.push(temp);
+              listData.push(temp);
+              sortarrays();
+              createList();
+              createTable();
+            } else if (checked.isListChecked) {
+              listData.push(temp);
+              sortarrays();
+              createList();
+            } else if (checked.isTableChecked) {
+              tableData.push(temp);
+              sortarrays();
+              createTable();
+            }
+          } else {
+            validationTag.style.display = "block";
+            siteName.style.borderColor = "red";
+          }
+        });
+
+        tableCheckbox.addEventListener("change", function (e) {
+          if (e.target.checked) {
+            checked.isTableChecked = true;
+          } else {
+            checked.isTableChecked = false;
+          }
+        });
+
+        function sortarrays() {
+          tableData.sort((a, b) => {
+            if (a.siteName < b.siteName) {
+              return -1;
+            } else if (a.siteName > b.siteName) {
+              return 1;
+            } else {
+              return 0;
+            }
+          });
+          listData.sort((a, b) => {
+            if (a.siteName < b.siteName) {
+              return -1;
+            } else if (a.siteName > b.siteName) {
+              return 1;
+            } else {
+              return 0;
+            }
+          });
+        }
+
+        listCheckbox.addEventListener("change", function (e) {
+          if (e.target.checked) {
+            checked.isListChecked = true;
+          } else {
+            checked.isListChecked = false;
+          }
+        });
+
+        function removeItem() {
+          let promptValue = prompt("Insert removal item name here:");
+
+          let filteredTable = tableData.filter(
+            (item) => item.siteName !== promptValue
+          );
+          tableData = filteredTable;
+          createTable();
+
+          let filteredList = listData.filter(
+            (item) => item.siteName !== promptValue
+          );
+          listData = filteredList;
+          console.log("listData :>> ", listData);
+          createList();
+        }
+
+        function sortSiteName(e) {
+          //this is an idea
+          tableData.reverse();
+          createTable();
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <h1>Sites</h1>
+    <div>
+      <div class="inline-block">
+        <input
+          required
+          type="text"
+          id="siteName"
+          placeholder="Enter site name"
+          value="amazon"
+        />
+        <br />
+        <label for="siteName" class="validation">Please enter a name</label>
+      </div>
+
+      <div class="inline-block">
+        <input
+          required
+          type="url"
+          name=""
+          id="url"
+          placeholder="Enter address"
+          value="www.amazon.com"
+        />
+      </div>
+
+      <div class="inline-block">
+        <input
+          required
+          type="text"
+          id="keywords"
+          placeholder="Enter keywords"
+          value="prime, AWS"
+        />
+      </div>
+
+      <button type="submit" id="btn" class="inline-block">Add</button><br />
+    </div>
+
+    <label id="addTo">Add To</label>
+    <input type="checkbox" name="table" id="table" class="checkbox" />
+    <label for="table">Table</label>
+    <input type="checkbox" name="list" id="list" class="checkbox" />
+    <label for="list">List</label>
+
+    <br />
+
+    <div id="listAll"></div>
+
+    <table id="myTable">
+      <tr>
+        <th id="site">Site Name</th>
+        <th>Keywords</th>
+      </tr>
+    </table>
+    <button id="remove">Remove</button>
+  </body>
+</html>
