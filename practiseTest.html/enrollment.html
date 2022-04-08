@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Enrollment</title>
+
+    <script>
+      let countryStates = [];
+      let countrys, states, name, zip;
+      window.onload = function () {
+        countrys = document.getElementById("country");
+        states = document.getElementById("states");
+
+        countrys.onchange = function () {
+          states.setAttribute("disabled", "disabled");
+          if (this.value == "other") states.remove(Attribute("disabled"));
+        };
+
+        document.getElementById("btn").onclick = submitInfo;
+      };
+      function submitInfo() {
+        let name = document.getElementById("name");
+        let country = document.getElementById("country");
+        let states = document.getElementById("states");
+        let zip = document.getElementById("zip");
+        let submitBtn = document.getElementById("btn");
+        let rightDiv = document.getElementById("rightDiv");
+
+        let nameVal = name.innerHTML;
+        let countryVal = country.innerHTML;
+        let statesVal = states.innerHTML;
+        let zipVal = zip.innerHTML;
+
+        let pName = document.createElement("p");
+        pName.innerHTML = name.value;
+        rightDiv.append(pName);
+
+        let pCountry = document.createElement("p");
+        pCountry.innerHTML = country.value;
+        rightDiv.append(pCountry);
+
+        let pState = document.createElement("p");
+        // if (country.value == "other") {
+        //   pState.innerHTML = "";
+        // } else {
+        //   pState.innerHTML = states.selected.value;
+        // }
+        rightDiv.append(pState);
+
+        let pZip = document.createElement("p");
+        pZip.innerHTML = zip.value;
+        rightDiv.append(pZip);
+
+        name.remove();
+        country.remove();
+        states.remove();
+        zip.remove();
+
+        submitBtn.innerText = "Done";
+      }
+    </script>
+    <style>
+      label,
+      button {
+        display: inline-block;
+        margin-bottom: 5px;
+      }
+      input,
+      select {
+        display: block;
+      }
+      div {
+        display: inline-table;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Enrollment</h1>
+    <div id="left">
+      <label for="">Name </label><br />
+      <label for="">Select Country </label><br />
+      <label for="">Select State </label><br />
+      <label for="">Zip Code </label><br />
+      <button type="submit" id="btn">Submit</button><br />
+    </div>
+
+    <div id="rightDiv">
+      <input id="name" type="text" placeholder="Enter Name" value="" />
+      <select id="country">
+        <option>USA</option>
+        <option>Others</option>
+      </select>
+      <select id="states">
+        <option value="">Alabama</option>
+        <option value="">Alaska</option>
+        <option value="">California</option>
+      </select>
+      <input id="zip" type="text" placeholder="Enter Zip" value="" />
+    </div>
+  </body>
+</html>

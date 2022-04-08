@@ -50,10 +50,10 @@ div input {
 }
 
 th {
-  background-color: blue;
+  background: blue;
   color: white;
 }
 
 tr:hover {
-  background-color: #ffff99;
+  background: #ffff99;
 }

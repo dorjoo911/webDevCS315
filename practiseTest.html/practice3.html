@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            margin: 10px
+        }
+
+        label {
+            width: 10%;
+            display: inline-block;
+        }
+
+        input[type="text"] {
+            width: 20%;
+        }
+    </style>
+</head>
+
+<body>
+    <h1> Your Job Application</h1>
+    <p>
+        <label for="fullName">Full Name</label>
+        <input type="text" value="My Name" onfocus="turnRed(this)" onblur="turnwhite(this)"/>
+    </p>
+    <p>
+        <label for="">Email</label>
+        <input type="text" id= "first" value="" />
+    </p>
+    
+    <p>
+        <label for="select">Select Role</label>
+        </select>
+        <select name="role">Role
+            <option value="QA">QA Engineer</option>
+            <option value="intern">Software Intern</option>
+            <option value="developer">Software Developer</option>
+        </select>
+        <!-- <myowntag newI="ree" >sdfsdfsdff</myowntag> -->
+        <!-- document.querySelector("myowntag[newI='ree']");
+            .innerHTML -->
+    </p>
+    <p>
+        Skill sets<br />(Select all that apply)
+
+        <input type="checkbox" value="java" name="check" onclick="checkMe(this)">Java</input>
+        <input type="checkbox" value="javascript" name="check" onclick="checkMe(this)">Javascript</input>
+        <br />
+    <p>
+        <label for="select">Specific Skills</label>
+        <select name="specificSkills" multiple size="7" style="width:20%"> ​
+            <optgroup label="Java" id="optgroupJava"> ​
+                <option value="J2EE">J2EE</option> ​
+                <option value ="Spring">Spring</option>​
+                <option value="Hibernate">Hibernate</option>​
+            </optgroup> ​
+            <optgroup label="Javascript" id="optgroupJavascript"> ​
+                <option value="ReatJS">ReatJS</option> ​
+                <option value="AngularJS">AngularJS</option> ​
+            </optgroup> ​
+        </select>
+        <p>
+            <input type="submit" value="Submit" onclick="submit()" />
+        </p>
+    </p>
+    </p>
+    <script>
+        
+        function submit(){
+            let select = document.getElementsByName("specificSkills")[0];
+            let values =""
+            let optionsJava = document.getElementsByTagName("optgroup")[0];
+            let optionsJavascript = document.getElementsByTagName("optgroup")[1];
+            if(select.selected){
+                for(let eachControl of select.options){
+               console.log(eachControl.value, eachControl.selected, eachControl.length);
+               if(eachControl.selected)
+                values+=eachControl.value;
+            }
+            }
+            
+            // for(let eachControl of select.options){
+            //    console.log(eachControl.value, eachControl.selected, eachControl.length);
+            //    if(eachControl.selected)
+            //     values+=eachControl.value;
+            // }
+            alert(values)
+        }
+        function turnRed(inputField){
+           // document.getElementById("first")
+            inputField.style.backgroundColor ="red";
+        }
+        function turnwhite(inputField){
+            inputField.style.backgroundColor ="white";
+        }
+        function checkMe(inputField){
+           let controls = document.getElementsByName("check");
+           let value =[];
+           for(let eachControl of controls){
+               console.log(eachControl,eachControl.checked);
+               if(eachControl.checked)
+                   value.push(eachControl.value);
+           }
+           
+           if(value.length==1 && value[0]=="java"){
+                let optGroup = document.getElementById("optgroupJavascript");
+                optGroup.style.display="none";
+                let optGroup1 = document.getElementById("optgroupJava");
+                optGroup1.style.display="";
+                console.log(" Inside java ")
+           }else if(value.length==1 && value[0]=="javascript"){
+            let optGroup = document.getElementById("optgroupJava");
+                optGroup.style.display="none";
+                let optGroup1 = document.getElementById("optgroupJavascript");
+                optGroup1.style.display="";
+                console.log(" Inside javascript ")
+           }else if (value.length==2){
+            let optGroup = document.getElementById("optgroupJava");
+                optGroup.style.display="";
+                let optGroup1 = document.getElementById("optgroupJavascript");
+                optGroup1.style.display="";
+                console.log(" Inside Java && javascript ")
+           }else if(value.length==0){
+            let optGroup = document.getElementById("optgroupJava");
+                optGroup.style.display="none";
+                let optGroup1 = document.getElementById("optgroupJavascript");
+                optGroup1.style.display="none";
+                console.log(" NO Java && javascript ")
+           }
+
+        }
+    </script>
+</body>
+
+</html>

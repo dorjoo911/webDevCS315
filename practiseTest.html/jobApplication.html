@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Job Application</title>
+    <link rel="stylesheet" href="styleJobApp.css" />
+    <script>
+        //   let yourInfo = {};
+        //   window.onload = function () {
+        //     document.getElementById("#btn").onclick = submitApp;
+        //   }
+          let roles = document.getElementById("selectRole").options;
+            console.log(roles);
+
+        //   function submitApp(){
+        //     let fullName = document.getElementById("fullName");
+        //     let email = document.getElementById("email");
+        //     let role = document.getElementById("selectRole");
+        //     console.log(role.options);
+        //     let skillSet = document.getElementById("skillSet");
+
+        //     // get selected role
+        //     // let selectedRole;
+        //     // function selectedRole(){
+        //     //     role.forEach(function(item){
+        //     //         item;
+        //     //     })
+        //     // }
+        //   }
+
+
+      </script>
+  </head>
+  <body>
+      
+    <h1>Your Job Application</h1>
+    <div>
+      <label>Full Name: </label>
+      <input type="text" name="fullName" id="fullName" /><br />
+      <label>Email: </label>
+      <input type="email" name="email" id="email" /><br />
+      <label>Select Role: </label>
+      <select name="role" id="selectRole">
+          <option value="">QA Engineer</option>
+          <option value="">Software Intern</option>
+          <option value="">Software developer</option>
+      </select>
+    </div>
+    <p>Skill sets:</p>
+    <label> (Select all that apply)</label>
+    <input type="checkbox" id="java" /><label>Java</label>
+    <input type="checkbox" id="javascript" /><label>Javascript</label><br />
+    <label>Specific Skills: </label>
+    <select name="" id="skillSet" size="7">
+    <optgroup label="Java">
+      <option >J2EE</option>
+      <option >Spring</option>
+      <option >Hibernet</option>
+    </output>
+      <optgroup label="Javascript">
+      <option >ReactJS</option>
+      <option >AngularJS</option>      
+    </optgroup>
+    </select><br>
+
+    <button type="submit" id="btn">Submit</button>
+  </body>
+</html>

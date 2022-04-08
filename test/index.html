@@ -1,96 +1,100 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
   </head>
+  <body>
+    <script>
+      window.onload = function () {
+        let buttonEl = document.getElementById("addbtn");
+        buttonEl.onclick = addRow;
+      };
+      // find body element by tag name in tag names of array of 1st index 0
+      let bodyEle = document.getElementsByTagName("body")[0];
+      // To create h1 tag with 'IVENTORY' text inside body tag's innerHTML
+      let header = document.createElement("h1"); //h1 created
+      header.innerHTML = "IVENTORY"; // h1 has "IVENTORY" iinnerHTML now
+      bodyEle.append(header); // h1 now body's child element /inside/
 
-  <body id="body">
-    <div id="wrapper">
-      <table id="mytable">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Type</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody id="tbody"></tbody>
-      </table>
-    </div>
-    <button onclick="display()">Display</button>
-    <!--<script src="get-text.js"></script>-->
+      let inputItem = document.createElement("input");
+      inputItem.placeholder = "Insert here: ";
+      inputItem.id = "inputItem";
+      inputItem.innerHTML = "Apple";
+      bodyEle.append(inputItem);
+
+      let inputCat = document.createElement("input");
+      inputCat.placeholder = "Insert here: ";
+      inputCat.id = "inputCat";
+      inputCat.innerHTML = "Electronic";
+      bodyEle.append(inputCat);
+
+      let inputQua = document.createElement("input");
+      inputQua.placeholder = "Insert quantidy";
+      inputQua.id = "inputQua";
+      inputQua.innerHTML = 100;
+      bodyEle.append(inputQua);
+
+      let inputRat = document.createElement("input");
+      inputRat.placeholder = "Insert rating between 1-5";
+      inputRat.id = "inputRat";
+      inputRat.innerHTML = 5;
+      bodyEle.append(inputRat);
+
+      let addBtn = document.createElement("button");
+      addBtn.innerHTML = "Add";
+      addBtn.id = "addbtn";
+      addBtn.style.display = "block";
+      addBtn.style.margin = "auto";
+      addBtn.style.background = "green";
+      bodyEle.append(addBtn);
+
+      // let intemVal = document.getElementById("inputItem").value;
+      // let catVal = document.getElementById("inputCat").value;
+      // let quaVal = document.getElementById("inputQua").value;
+      // let ratVal = document.getElementById("inputRat").value;
+      // inputItem.value = intemVal;
+
+      let array = [inputItem.innerHTML, inputCat, inputQua, inputRat];
+      // array.forEach(function (item) {
+      //   console.log(item);
+      // });
+      // let array = [
+      //   ,
+      //   { id: 1, name: "name1", price: 1, ratings: 2 },
+      //   { id: 2, name: "name2", price: 5, ratings: 3 },
+      //   { id: 3, name: "name3", price: 55, ratings: 3 },
+      //   { id: 4, name: "name4", price: 9, ratings: 4 },
+      // ];
+      function addRow() {
+        let tbody = document.getElementsByTagName("tbody")[0];
+        let trEle = document.createElement("tr");
+        tbody.append(trEle);
+
+        array.forEach(function (item) {
+          let tdEle = document.createElement("td");
+          tdEle.setAttribute("itemname", item + "");
+          tdEle.innerHTML = item;
+          trEle.append(tdEle);
+        });
+      }
+    </script>
+    <table class="table" id="myTable">
+      <tr>
+        <th>Product Name</th>
+        <th>Category</th>
+        <th>Quantity</th>
+        <th>Rating</th>
+        <th>
+          <select>
+            <option></option>
+            <option>Sort</option>
+            <option>Filter</option>
+          </select>
+        </th>
+      </tr>
+    </table>
   </body>
 </html>
-
-<script>
-  var myArray = [
-    { name: "dda", level: "A" },
-    { name: "bbb", level: "B" },
-    { name: "ccc", level: "C" },
-  ];
-
-  function display() {
-    var length = myArray.length;
-    var htmltext = "";
-
-    for (var i = 0; i < length; i++) {
-      console.log(myArray[i]);
-      htmltext +=
-        "<tr id='table" +
-        i +
-        "'><td>" +
-        myArray[i].name +
-        "</td><td>" +
-        myArray[i].level +
-        "</td><td><button onclick='edit(" +
-        i +
-        ")'>Edit</button><button onclick='remove(" +
-        i +
-        ")'>Remove</button></td></tr>";
-    }
-    document.getElementById("tbody").innerHTML = htmltext;
-  }
-
-  function edit(indice) {
-    var htmltext =
-      "<tr><td><input id='inputname" +
-      indice +
-      "' type='text' value='" +
-      myArray[indice].name +
-      "'></td><td><input id='inputlevel" +
-      indice +
-      "' type='text' value='" +
-      myArray[indice].level +
-      "'></td><td><button onclick='save(" +
-      indice +
-      ")'>Save</button><button onclick='remove(" +
-      indice +
-      ")'>Remove</button></td></tr>";
-    document.getElementById("table" + indice).innerHTML = htmltext;
-  }
-
-  function save(indice) {
-    myArray[indice].name = document.getElementById("inputname" + indice).value;
-    myArray[indice].level = document.getElementById(
-      "inputlevel" + indice
-    ).value;
-    var htmltext =
-      "<tr id='table" +
-      indice +
-      "'><td>" +
-      myArray[indice].name +
-      "</td><td>" +
-      myArray[indice].level +
-      "</td><td><button onclick='edit(" +
-      indice +
-      ")'>Edit</button><button onclick='remove(" +
-      indice +
-      ")'>Remove</button></td></tr>";
-    document.getElementById("table" + indice).innerHTML = htmltext;
-  }
-
-  function remove(indice) {
-    console.log(myArray);
-    myArray.splice(indice, 1);
-    display();
-  }
-</script>

@@ -1,0 +1,142 @@
+:root {
+  --main-radius: 5px;
+  --main-padding: 5px;
+}
+
+.container {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 0.2fr 1fr 0.8fr 1fr 0.2fr;
+  grid-template-areas:
+    "nav nav"
+    "content1 sidebar"
+    "content2 sidebar"
+    "content3 sidebar"
+    "footer footer";
+  gap: 0.2em;
+  text-transform: uppercase;
+  font-size: 12px;
+  text-align: center;
+  background: #9ca09e;
+}
+nav,
+#content1,
+#content2,
+#content3,
+footer {
+  border-radius: var(--main-radius);
+  padding-top: var(--main-padding);
+  text-align: left;
+  margin: 5px;
+  background-color: white;
+}
+nav {
+  background: #a7ffeb;
+  grid-area: nav;
+}
+
+#sidebar {
+  /* background: #dce4b0; */
+  grid-area: sidebar;
+}
+#content1 {
+  /* background: #e9ace9; */
+  grid-area: content1;
+}
+#content2 {
+  /* background: #d1bcbc; */
+  grid-area: content2;
+}
+#content3 {
+  /* background: #00f3ba; */
+  grid-area: content3;
+}
+footer {
+  grid-area: footer;
+}
+
+@media only screen and (max-width: 550px) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.5fr 2fr 1fr 1fr 1fr 0.5fr;
+    grid-template-areas:
+      "nav"
+      "sidebar"
+      "content1"
+      "content2"
+      "content3"
+      "footer";
+  }
+}
+.topnav {
+  overflow: hidden;
+  background-color: white;
+}
+
+.topnav a {
+  float: right;
+  color: black;
+  text-align: center;
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.topnav a:hover {
+  background-color: black;
+  color: white;
+}
+
+.topnav a.active {
+  background-color: #333;
+  color: white;
+}
+#logo {
+  height: 50%;
+}
+
+label,
+p,
+h1 {
+  display: inline;
+}
+img {
+  height: 150px;
+  float: left;
+  margin: 5px;
+  border-radius: 5%;
+}
+button {
+  color: azure;
+  background: rgb(14, 163, 212);
+  border-radius: 10%;
+  padding: 5px;
+}
+#titleContent1 {
+  margin: 10px;
+}
+hr {
+  border: 2px solid black;
+}
+.search {
+  background: white;
+  border-radius: 2%;
+  margin: 5px;
+  text-align: left;
+}
+a {
+  display: block;
+  text-decoration: none;
+  margin-left: 5px;
+  text-transform: capitalize;
+  color: gray;
+  margin-bottom: 3px;
+}
+#sidebar {
+  background-color: #9ca09e;
+  margin: 0;
+}
+#footerID {
+  float: left;
+}

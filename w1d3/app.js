@@ -23,8 +23,10 @@ function pageLoaded() {
   buttonEl = document.getElementById("inventtoryBtn");
   buttonEl.onclick = createTable;
 
-  buttonEl = document.getElementById("deleteBtn");
-  buttonEl.onclick = deleteRow;
+  // document.getElementById("editBtn").onclick = editThenSave;
+  // document.getElementById("saveBtn").onclick = saveThenEdit;
+  // buttonEl = document.getElementById("deleteBtn");
+  // buttonEl.onclick = deleteRow;
 }
 
 function clickToAdd() {
@@ -95,9 +97,11 @@ function createTable() {
     deleteRow();
   }
   let update =
-    '<button class="inventoryBtn" type="button" id="editBtn">Edit</button>';
+    '<button class="inventoryBtn" type="button" id="editBtn" onclick="editRow(this)">Edit</button>' +
+    '<button class="inventoryBtn" type="submit" id="saveBtn" onclick="saveThenEdit(this) display="none" >Save</button>';
   let cancel =
-    '<button class="inventoryBtn" type="button" id="deleteBtn">Delete</button>';
+    '<button class="inventoryBtn" type="button" id="deleteBtn" onclick="deleteRow(this)">Delete</button>';
+
   cell1.innerHTML = product;
   cell2.innerHTML = categoty;
   cell3.innerHTML = quantidy;
@@ -106,9 +110,90 @@ function createTable() {
   cell6.innerHTML = cancel;
 }
 
-function deleteRow() {
-  document.getElementById("deleteBtn").deleteRow(0);
+function deleteRow(row) {
+  let thisRow = row.parentNode.parentNode.rowIndex;
+  document.getElementById("myTable").deleteRow(thisRow);
 }
-function addSave() {
-  let edit = document.querySelector("#editBtn").editCell();
+function editRow(obj) {
+  // let childrenOf = obj.parentNode.parentNode.children;
+  let itemName = obj.parentNode.parentNode.children[0];
+  let catName = obj.parentNode.parentNode.children[1];
+  let quantity = obj.parentNode.parentNode.children[2];
+  let rating = obj.parentNode.parentNode.children[3];
+
+  let itemName_val = itemName.innerHTML;
+  let catName_val = catName.innerHTML;
+  let quantity_val = quantity.innerHTML;
+  let rating_val = rating.innerHTML;
+
+  itemName.innerHTML =
+    "<input type='text' id='name_text' value='" + itemName_val + "'>";
+  catName.innerHTML =
+    "<input type='text' id='name_text' value='" + catName_val + "'>";
+  quantity.innerHTML =
+    "<input type='text' id='name_text' value='" + quantity_val + "'>";
+  rating.innerHTML =
+    "<input type='text' id='name_text' value='" + rating_val + "'>";
+
+  // console.log(itemName, catName, quantity, rating);
+
+  // document.getElementById("editBtn").style.display = "none";
+  // document.getElementById("saveBtn").style.display = "inline-block";
 }
+function saveThenEdit(obj) {
+  let itemName = obj.parentNode.parentNode.parentNode.children[0];
+  let catName = obj.parentNode.parentNode.parentNode.children[1];
+  let quantity = obj.parentNode.parentNode.parentNode.children[2];
+  let rating = obj.parentNode.parentNode.parentNode.children[3];
+  console.log("itemName :>> ", itemName);
+  // for (let i = 0; i < childrenOf.length - 2; i++) {
+  //   childrenOf[i].readOnly = false;
+  // }
+  // document.getElementById("editBtn").style.display = "inline-block";
+  // document.getElementById("saveBtn").style.display = "none";
+}
+
+// function editSave(row) {
+//   let thisRow = row.parentNode.parentNode.rowIndex;
+//   let editBtn = thisRow.document.querySelector("#editBtn");
+//   let saveBtn = thisRow.document.querySelector("#saveBtn");
+//   if (editBtn.onclick == true) {
+//     thisRow.editBtn.style.display = "none";
+//     return saveBtn;
+//   }
+// }
+// window.onload= function (){
+//   document.getElementById("editBtn").onclick = edit;
+// }
+// //Remove Row
+// function edit(){
+//   console.log(this.parentNode.parentNode.children);
+//   let childrenOf= this.parentNode.parentNode.children;
+//   // childrenOf[0].remove();
+//   // this.parentNode.parentNode.remove();
+//   // this.parentNode.parentNode.innerHTML="";
+// }
+
+// document.getElementById("editBtn").addEventListener("click", function () {
+//   var fields = document.querySelectorAll("???");
+//   for (let i = 0; i < fields.length; i++) {
+//     fields[i].readOnly = false;
+//   }
+//   document.getElementById("saveBtn").style.display = "inline-block";
+// });
+
+// document.getElementById("saveBtn").addEventListener("click", function () {
+//   var data = {};
+//   data.product = document.getElementById("inputItem_4").value;
+//   data.categoty = document.getElementById("inputCategory_4").value;
+//   data.quantidy = document.getElementById("inputQuantidy_4").value;
+//   data.rating = document.getElementById("inputRaiting_4").value;
+
+//   var fields = document.querySelectorAll("???");
+//   for (let i = 0; i < fields.length; i++) {
+//     fields[i].readOnly = true;
+//   }
+
+//   document.getElementById("saveBtn").style.display = "none";
+// });
+// #myTable > tbody > tr:nth-child(2)

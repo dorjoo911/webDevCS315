@@ -1,164 +1,109 @@
-function CreateUniqueEmployeeID() {
-  const ID = Date.now();
-  return ID;
+window.onload = pageLoaded;
+
+let buttonEl;
+
+function pageLoaded() {
+  buttonEl = document.getElementById("inventtoryBtn");
+  buttonEl.onclick = createTable;
+
+  // document.getElementById("editBtn").onclick = editThenSave;
+  // document.getElementById("saveBtn").onclick = saveThenEdit;
+  // buttonEl = document.getElementById("deleteBtn");
+  // buttonEl.onclick = deleteRow;
 }
-document
-  .getElementById("btnaddEmployee")
-  .addEventListener("click", function (event) {
-    event.preventDefault();
-    var EmployeeID = CreateUniqueEmployeeID();
-    var EmployeeName = document.getElementById("txtEmployeeName").value;
-    var Address = document.getElementById("txtAddress").value;
-    var PostalCode = document.getElementById("txtPostalCode").value;
-    var btneditId = "btnedit" + EmployeeID;
-    var btndeleteId = "btndelete" + EmployeeID;
-    var tablerow =
-      "<tr Id='" +
-      EmployeeID +
-      "'   data-EmployeeID='" +
-      EmployeeID +
-      "'   data-EmployeeName='" +
-      EmployeeName +
-      "' data-Address='" +
-      Address +
-      "'   data-PostalCode='" +
-      PostalCode +
-      "'>" +
-      "<td class='td-data'>" +
-      EmployeeID +
-      "</td>" +
-      "<td class='td-data'>" +
-      EmployeeName +
-      "</td>" +
-      "<td class='td-data'>" +
-      Address +
-      "</td>" +
-      "<td class='td-data'>" +
-      PostalCode +
-      "</td>" +
-      "<td class='td-data'>" +
-      "<button id='" +
-      btneditId +
-      "' class='btn btn-info btn-xs btn-editcustomer' onclick='showeditrow(" +
-      EmployeeID +
-      ")'><i class='fa fa-pencil' aria-hidden='true'></i>Edit</button>" +
-      "<button id='" +
-      btndeleteId +
-      "' class='btn btn-danger btn-xs btn-deleteEmployee' onclick='deleteEmployeeRow(" +
-      EmployeeID +
-      ")'><i class='fa fa-trash' aria-hidden='true'>Delete</button>" +
-      "</td>" +
-      "</tr>";
-    debugger;
-    document.getElementById("tblbody").innerHTML += tablerow;
-    document.getElementById("txtEmployeeName").value = "";
-    document.getElementById("txtAddress").value = "";
-    document.getElementById("txtPostalCode").value = "";
-  });
 
-function showeditrow(EmployeeID) {
-  debugger;
-  var EmployeeRow = document.getElementById(EmployeeID); //this gives tr of  whose button was clicked
+function createTable() {
+  let table = document.getElementById("myTable");
 
-  var data = EmployeeRow.querySelectorAll(".td-data");
+  let row = table.insertRow(-1);
 
-  /*returns array of all elements with
-            "row-data" class within the row with given id*/
+  let cell1 = row.insertCell(0);
+  let cell2 = row.insertCell(1);
+  let cell3 = row.insertCell(2);
+  let cell4 = row.insertCell(3);
+  let cell5 = row.insertCell(4);
+  let cell6 = row.insertCell(5);
 
-  var EmployeeID = data[0].innerHTML;
-  var EmployeeName = data[1].innerHTML;
-  var Address = data[2].innerHTML;
-  var PostalCode = data[3].innerHTML;
-  var btneditId = "btnedit" + EmployeeID;
-  data[0].innerHTML =
-    '<input name="txtupdate_EmployeeID"  disabled id="txtupdate_EmployeeID" value="' +
-    EmployeeID +
-    '"/>';
-  data[1].innerHTML =
-    '<input name="txtupdate_EmployeeName" id="txtupdate_EmployeeName" value="' +
-    EmployeeName +
-    '"/>';
-  data[2].innerHTML =
-    '<input name="txtupdate_Address" id="txtupdate_Address" value="' +
-    Address +
-    '"/>';
-  data[3].innerHTML =
-    '<input name="txtupdate_PostalCode" id="txtupdate_PostalCode" value="' +
-    PostalCode +
-    '"/>';
+  let product = document.getElementById("inputItem_4").value;
+  if (product == "") {
+    alert("Please insert product name");
+    document.querySelector("#inputItem_4").style.background = "red";
+    product = "";
+  }
+  let categoty = document.getElementById("inputCategory_4").value;
+  if (categoty == "") {
+    alert("Please insert category");
+    document.querySelector("#inputCategory_4").style.background = "red";
+  }
+  let quantidy = document.getElementById("inputQuantidy_4").value;
+  if (quantidy == !Number) {
+    alert("Please input a number only!!!");
+    document.querySelector("#inputQuantidy_4").style.background = "red";
+    deleteRow();
+  }
+  let rating = document.getElementById("inputRaiting_4").value;
+  if (rating == !Number) {
+    alert("Please input number only!!!");
+    document.querySelector("#inputRaiting_4").style.background = "red";
+    deleteRow();
+  } else if (rating > 5) {
+    alert("Please rate between 1-5");
+    document.querySelector("#inputRaiting_4").style.background = "red";
+    deleteRow();
+  }
+  let update =
+    '<button class="inventoryBtn" type="button" id="editBtn" onclick="editThenSave(this)">Edit</button>' +
+    '<button class="inventoryBtn" type="submit" id="saveBtn" onclick="saveThenEdit(this) display="none" >Save</button>';
+  let cancel =
+    '<button class="inventoryBtn" type="button" id="deleteBtn" onclick="deleteRow(this)">Delete</button>';
 
-  data[4].innerHTML =
-    "<button class='btn btn-primary btn-xs btn-updateEmployee' onclick='updateemployees(" +
-    EmployeeID +
-    ")'>" +
-    "<i class='fa fa-pencil' aria-hidden='true'></i>Update</button>" +
-    "<button class='btn btn-warning btn-xs btn-cancelupdate' onclick='cancelupdate(" +
-    EmployeeID +
-    ")'><i class='fa fa-times' aria-hidden='true'></i>Cancel</button>" +
-    "<button class='btn btn-danger btn-xs btn-deleteEmployee' onclick='deleteEmployeeRow(" +
-    EmployeeID +
-    ")'>" +
-    "<i class='fa fa-trash' aria-hidden='true'></i>Delete</button>";
+  cell1.innerHTML = product;
+  cell2.innerHTML = categoty;
+  cell3.innerHTML = quantidy;
+  cell4.innerHTML = rating;
+  cell5.innerHTML = update;
+  cell6.innerHTML = cancel;
 }
-function cancelupdate(EmployeeID) {
-  debugger;
-  var btneditId = "btnedit" + EmployeeID;
-  var btndeleteId = "btndelete" + EmployeeID;
 
-  var EmployeeRow = document.getElementById(EmployeeID); //this gives tr of  whose button was clicked
-  var data = EmployeeRow.querySelectorAll(".td-data");
-
-  var EmployeeName = EmployeeRow.getAttribute("data-EmployeeName");
-  var Address = EmployeeRow.getAttribute("data-Address");
-  var PostalCode = EmployeeRow.getAttribute("data-PostalCode");
-
-  data[0].innerHTML = EmployeeID;
-  data[1].innerHTML = EmployeeName;
-  data[2].innerHTML = Address;
-  data[3].innerHTML = PostalCode;
-
-  var actionbtn =
-    "<button id='" +
-    btneditId +
-    "' class='btn btn-info btn-xs btn-editcustomer' onclick='showeditrow(" +
-    EmployeeID +
-    ")'><i class='fa fa-pencil' aria-hidden='true'></i>Edit</button>" +
-    "<button id='" +
-    btndeleteId +
-    "' class='btn btn-danger btn-xs btn-deleteEmployee' onclick='deleteEmployeeRow(" +
-    EmployeeID +
-    ")'><i class='fa fa-trash' aria-hidden='true'>Delete</button>";
-  data[4].innerHTML = actionbtn;
+function deleteRow(row) {
+  let thisRow = row.parentNode.parentNode.rowIndex;
+  document.getElementById("myTable").deleteRow(thisRow);
 }
-function deleteEmployeeRow(EmployeeID) {
-  document.getElementById(EmployeeID).remove();
+function editThenSave(obj) {
+  // let childrenOf = obj.parentNode.parentNode.children;
+  let itemName = obj.parentNode.parentNode.children[0];
+  let catName = obj.parentNode.parentNode.children[1];
+  let quantity = obj.parentNode.parentNode.children[2];
+  let rating = obj.parentNode.parentNode.children[3];
+
+  let itemName_val = itemName.innerHTML;
+  let catName_val = catName.innerHTML;
+  let quantity_val = quantity.innerHTML;
+  let rating_val = rating.innerHTML;
+
+  itemName.innerHTML =
+    "<input type='text' id='name_text' value='" + itemName_val + "'>";
+  catName.innerHTML =
+    "<input type='text' id='name_text' value='" + catName_val + "'>";
+  quantity.innerHTML =
+    "<input type='text' id='name_text' value='" + quantity_val + "'>";
+  rating.innerHTML =
+    "<input type='text' id='name_text' value='" + rating_val + "'>";
+
+  // console.log(itemName, catName, quantity, rating);
+
+  // document.getElementById("editBtn").style.display = "none";
+  // document.getElementById("saveBtn").style.display = "inline-block";
 }
-function updateemployees(EmployeeID) {
-  var btneditId = "btnedit" + EmployeeID;
-  var btndeleteId = "btndelete" + EmployeeID;
-
-  var EmployeeRow = document.getElementById(EmployeeID); //this gives tr of  whose button was clicked
-  var data = EmployeeRow.querySelectorAll(".td-data");
-
-  var EmployeeName = data[1].querySelector("#txtupdate_EmployeeName").value;
-  var Address = data[2].querySelector("#txtupdate_Address").value;
-  var PostalCode = data[3].querySelector("#txtupdate_PostalCode").value;
-
-  data[0].innerHTML = EmployeeID;
-  data[1].innerHTML = EmployeeName;
-  data[2].innerHTML = Address;
-  data[3].innerHTML = PostalCode;
-
-  var actionbtn =
-    "<button id='" +
-    btneditId +
-    "' class='btn btn-info btn-xs btn-editcustomer' onclick='showeditrow(" +
-    EmployeeID +
-    ")'><i class='fa fa-pencil' aria-hidden='true'></i>Edit</button>" +
-    "<button id='" +
-    btndeleteId +
-    "' class='btn btn-danger btn-xs btn-deleteEmployee' onclick='deleteEmployeeRow(" +
-    EmployeeID +
-    ")'><i class='fa fa-trash' aria-hidden='true'>Delete</button>";
-  data[4].innerHTML = actionbtn;
+function saveThenEdit(obj) {
+  let itemName = obj.parentNode.parentNode.parentNode.children[0];
+  let catName = obj.parentNode.parentNode.parentNode.children[1];
+  let quantity = obj.parentNode.parentNode.parentNode.children[2];
+  let rating = obj.parentNode.parentNode.parentNode.children[3];
+  console.log("itemName :>> ", itemName);
+  // for (let i = 0; i < childrenOf.length - 2; i++) {
+  //   childrenOf[i].readOnly = false;
+  // }
+  // document.getElementById("editBtn").style.display = "inline-block";
+  // document.getElementById("saveBtn").style.display = "none";
 }

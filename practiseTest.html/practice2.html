@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            margin: 10px;
+        }
+
+        label {
+            width: 10%;
+            display: inline-block;
+        }
+
+        input[type="text"] {
+            width: 20%;
+        }
+        .labelClass{
+            display:none;
+        }
+    </style>
+    <script>
+        window.onload = function (){
+            document.getElementById("country").onchange = countryChanged;
+            document.getElementById("submitId").onclick = onSubmit;
+        }
+        function countryChanged(){
+            for(let option of this.options){
+                if(option.selected && option.value=="USA")
+                {
+                    document.getElementById("selectState").style.display="";
+                    document.getElementById("state").style.display = "";
+                    break;
+                }else if(option.selected && option.value=="Other"){
+                    document.getElementById("selectState").style.display="none";
+                    document.getElementById("state").style.display = "none";
+                    break;
+                }
+            }
+        }
+
+        function onSubmit(){
+            let nameText =  document.getElementById("nameText");
+            let state =  document.getElementById("state");
+            let country =  document.getElementById("country");
+            let zipCode =  document.getElementById("zipCode");
+
+            nameText.style.display="none";
+            if(country.value=="USA")
+                state.style.display = "none";
+            country.style.display = "none";
+            zipCode.style.display = "none";
+
+            let nameLabel = document.getElementById("nameLabel");
+            let stateLabel = document.getElementById("stateLabel");
+            let countryLabel = document.getElementById("countryLabel");
+            let zipCodeLabel = document.getElementById("zipCodeLabel");
+
+            nameLabel.className = "";
+            if(country.value=="USA")
+                stateLabel.className = "";
+            countryLabel.className = "";
+            zipCodeLabel.className = "";
+
+            nameLabel.innerHTML = nameText.value
+            if(country.value=="USA")
+                stateLabel.innerHTML = state.value
+            countryLabel.innerHTML = country.value
+            zipCodeLabel.innerHTML = zipCode.value
+            
+            this.value = "Done";
+        }
+    </script>
+   
+</head>
+
+<body>
+    <h1> Enrollment</h1>
+    <p>
+        <label for="fullName"> Name</label>
+        <label class="labelClass"  id="nameLabel" >Mahesh</label>
+        <input type="text" id="nameText" placeholder="Enter Name" />
+    </p>
+    <p>
+        <label for="">Select Country</label>
+        <label class="labelClass" id="countryLabel">USA</label>
+        <select id="country">
+            <option value="USA">USA</option>
+            <option value="Other">Other</option>
+        </select>
+    </p>
+    
+    <p>
+        <label id="selectState">Select State</label>
+        <label class="labelClass" id="stateLabel">Alabama</label>
+        <select id="state">
+            <option value="Albama">Albama</option>
+            <option value="Albama">Albama</option>
+            <option value="California">California</option>
+        </select>
+    </p>
+    <p>
+        <label>Zip Code</label>
+        <label class="labelClass" id="zipCodeLabel">980003</label>
+        <input type="number" id="zipCode" placeholder="Enter Zip" />
+    <p>
+        
+        <p>
+            <input type="submit" value="Submit" id="submitId" />
+        </p>
+    </p>
+    </p>
+   
+</body>
+</html>

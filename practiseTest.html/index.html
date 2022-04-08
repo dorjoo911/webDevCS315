@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      let plantArray = [];
+      let sourceBox, deestinationBox;
+      window.onload = function () {
+        sourceBox = document.getElementsByName("source")[0];
+        // console.log(sourceBox);
+        deestinationBox = document.getElementsByName("destination")[0];
+        document.getElementById("addBtn").onclick = add;
+        document.getElementById("moveToSource").onclick = moveToSource;
+        document.getElementById("moveToDestination").onclick =
+          moveToDestination;
+        document.getElementById("sortId").onclick = sortItems;
+      };
+
+      function moveToSource() {
+        move(deestinationBox, sourceBox);
+      }
+      function move(sourceBox, deestinationBox) {
+        // console.log(sourceBox, deestinationBox);
+        let selectedOptions = [];
+        for (let eachOption of sourceBox.options) {
+          // console.log(eachOption.selected, eachOption.innerHTML);
+          if (eachOption.selected) {
+            selectedOptions.push(eachOption); //elements of array
+          }
+        }
+
+        for (let option of selectedOptions) {
+          console.log("object :>> ", option.outerHTML);
+          // option.outerHTML = ""; //each option element's outerHTML empty
+          // option.remove();
+          deestinationBox.append(option);
+        }
+        // console.log(sourceBox, deestinationBox);
+      }
+      //Show text,"Successffully Moved to Destination" beneath Heading for 5 seconds only
+      function moveToDestination() {
+        let pElement = document.createElement("p");
+        pElement.innerHTML = "Successfully Moved to Destination";
+        let header = document.getElementById("heading");
+        header.after(pElement);
+
+        setTimeout(function () {
+          pElement.style.display = "none";
+          // console.log(" Hide the text ");
+        }, 5000);
+
+        move(sourceBox, deestinationBox); //"Successfully Moved to Destination"
+      }
+
+      function add() {
+        let plantText = document.getElementById("plantText");
+        plantArray.push(plantText.value);
+        // plantText.value = "";
+
+        //Add to Source
+        let option = document.createElement("option");
+        option.innerHTML = plantText.value;
+        sourceBox.append(option);
+      }
+
+      function rebuildSelect(sourceBox) {
+        let arrayOfItems = [];
+        for (let eachOption of sourceBox.children) {
+          // console.log(eachOption);
+          arrayOfItems.push(eachOption.innerHTML);
+        }
+        arrayOfItems.sort();
+
+        sourceBox.innerHTML = "";
+        for (let item of arrayOfItems) {
+          let option = document.createElement("option");
+          option.innerHTML = item;
+          sourceBox.append(option);
+        }
+      }
+      function sortItems() {
+        rebuildSelect(sourceBox);
+        rebuildSelect(deestinationBox);
+      }
+    </script>
+    <style>
+      body {
+        margin: 10px;
+      }
+      p {
+        font-weight: bold;
+      }
+      div {
+        margin-top: 20px;
+      }
+      label + label {
+        margin-left: 90px;
+      }
+      select {
+        padding: 5px;
+        margin-right: 10px;
+      }
+
+      select ~ select {
+        margin-left: 10px;
+      }
+      /* div > p{
+            color:blue;
+        } */
+      /* article + p{
+            color:yellow;
+        } */
+    </style>
+  </head>
+
+  <body>
+    <p id="heading">Heading</p>
+
+    <div>
+      <!-- <p>Above Article </p>
+    <article>
+        <p>Add Plant</p>
+    </article>
+    <div>DIV IN BETWEEN</div>
+    <p> One more p</p>
+    <p> Second P </p> -->
+      <label>Plant Name: </label>
+      <input type="text" id="plantText" />
+      <input type="button" id="addBtn" value="Add" />
+    </div>
+    <div>
+      <label>Source</label>
+      <label>Destination</label>
+    </div>
+    <div>
+      <select name="source" multiple>
+        <option>oak</option>
+        <option>willow</option>
+        <option>chestnut</option>
+      </select>
+      <button id="moveToDestination">></button>
+      <button id="moveToSource"><</button>
+      <select name="destination" multiple>
+        <option>maple</option>
+        <option>blueberry</option>
+        <option>apple</option>
+      </select>
+    </div>
+    <div>
+      <button id="sortId">Sort</button>
+    </div>
+  </body>
+</html>

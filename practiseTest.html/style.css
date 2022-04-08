@@ -1,0 +1,10 @@
+.content {
+  display: inline-block;
+}
+li {
+  list-style-type: none;
+}
+select {
+  overflow: auto;
+  width: 100px;
+}

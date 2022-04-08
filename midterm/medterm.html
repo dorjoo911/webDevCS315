@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sites</title>
+    <style>
+      table,
+      div {
+        display: none;
+      }
+    </style>
+    <script>
+      window.onload = function () {
+        let add = document.getElementById("btn");
+        add.onclick = insertInfo;
+        document.getElementById("");
+      };
+
+      let name, address, keyword, table, list;
+      function insertInfo() {
+        name = document.getElementById("siteName");
+        address = document.getElementById("url");
+        keyword = document.getElementById("keywords");
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Sites</h1>
+    <input
+      type="text"
+      id="siteName"
+      placeholder="Enter site name"
+      value="google"
+    />
+    <input
+      type="url"
+      name=""
+      id="url"
+      placeholder="Enter address"
+      value="www.google.com"
+    />
+    <input
+      type="text"
+      id="keywords"
+      placeholder="Enter keywords"
+      value="Java, Javascript"
+    />
+    <button type="submit" id="btn">Add</button><br />
+    <label id="addTo">Add To</label>
+    <input type="checkbox" name="table" id="table" /><label for="table"
+      >Table</label
+    >
+    <input type="checkbox" name="list" id="list" /><label for="list">List</label
+    ><br />
+    <div id="listAll">
+      <a href="http//google.com">Google</a>
+      <ul>
+        <li>Java</li>
+        <li>Javascript</li>
+      </ul>
+      <a href="http//google.com">Paypal</a>
+      <ul>
+        <li>Account</li>
+      </ul>
+    </div>
+
+    <table id="myTable">
+      <tr>
+        <th>Site Name</th>
+        <th>Site Name</th>
+      </tr>
+      <tr>
+        <td>google</td>
+        <td>Java, Javascript</td>
+      </tr>
+      <tr>
+        <td>paypal</td>
+        <td>Account</td>
+      </tr>
+    </table>
+    <button id="remove">Remove</button>
+  </body>
+</html>
