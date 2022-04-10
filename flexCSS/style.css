@@ -1,0 +1,29 @@
+.container,
+.listItem {
+  flex: 1 100px;
+  display: flex;
+  align-items: flex-start;
+  /* justify-content: space-around; */
+}
+
+.content {
+  background-color: aqua;
+  align-self: stretch;
+  margin: 5px;
+  padding: 10px;
+}
+.listItem > p,
+#btn {
+  background-color: #f1f1f1;
+  padding: 10px;
+  text-align: center;
+  line-height: 5px;
+  align-items: center;
+  margin: 5px;
+}
+#nav {
+  position: absolute;
+  left: 10px;
+  padding: 10px;
+  align-self: end;
+}

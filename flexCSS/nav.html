@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .flex-container {
+        display: flex;
+        align-items: center;
+        background-color: black;
+        justify-content: space-between;
+      }
+      .flex-container > div {
+        color: white;
+        /* margin: 5px; */
+        text-align: center;
+      }
+      .logo a {
+        color: white;
+      }
+      .logo,
+      .navigation {
+        list-style: none;
+        text-transform: uppercase;
+      }
+      .logo a,
+      .navigation a,
+      #logo a {
+        text-decoration: none;
+      }
+      .navigation {
+        display: flex;
+      }
+
+      .navigation a {
+        display: block;
+        padding: 5px;
+        color: white;
+      }
+
+      .navigation a:hover {
+        background: #00ace6;
+      }
+      #logo {
+        background-color: #00ace6;
+        border-radius: 35%;
+        padding: 5px;
+      }
+      .container {
+        display: flex;
+        background-color: #9ca7e4;
+        padding: 30px;
+        justify-content: space-between;
+        flex-direction: column;
+        height: 500px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="flex-container">
+        <div style="flex-grow: 1">
+          <h1 class="logo"><a href="#">LOGOBAKERY</a></h1>
+        </div>
+        <div style="flex-grow: 1">
+          <ul class="navigation">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Demo</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div style="flex-grow: 1">
+          <p id="logo"><a href="#">Contact</a></p>
+        </div>
+      </div>
+      <div class="flex-container">
+        <div style="flex-grow: 0">
+          <ul class="navigation">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Demo</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div style="flex-grow: 1">
+          <p id="logo"><a href="#">Contact</a></p>
+        </div>
+        <div style="flex-grow: 2">
+          <h1 class="logo"><a href="#">LOGOBAKERY</a></h1>
+        </div>
+      </div>
+      <div class="flex-container">
+        <div style="flex-grow: 2">
+          <h1 class="logo"><a href="#">LOGOBAKERY</a></h1>
+        </div>
+        <div style="flex-grow: 0">
+          <ul class="navigation">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Demo</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div style="flex-grow: 1">
+          <p id="logo"><a href="#">Contact</a></p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
