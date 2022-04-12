@@ -1,7 +1,7 @@
 body {
   background-color: rgb(27, 27, 31);
   color: white;
-  width: 900px;
+  /* width: 900px; */
 }
 .content1 {
   grid-area: content1;
