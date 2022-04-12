@@ -1,0 +1,59 @@
+#inOut {
+  background: rgb(175, 233, 67);
+}
+
+textarea {
+  width: 100%;
+}
+#operate {
+  background-color: aquamarine;
+}
+#btnAdd {
+  background-color: green;
+  color: white;
+}
+#btnSub {
+  background-color: red;
+  color: white;
+}
+#btnMul {
+  background-color: blue;
+  color: white;
+}
+#inventory {
+  background-color: rgb(159, 199, 231);
+}
+div input {
+  width: 95%;
+  padding: 10px;
+}
+.inventoryBtn {
+  color: white;
+  border-radius: 3px;
+}
+#inventtoryBtn {
+  background-color: green;
+  color: white;
+  border-radius: 3px;
+  padding: 10px;
+}
+#deleteBtn {
+  background-color: red;
+}
+#editBtn {
+  background-color: yellow;
+  color: black;
+}
+#myTable {
+  text-align: left;
+  width: 100%;
+}
+
+th {
+  background: blue;
+  color: white;
+}
+
+tr:hover {
+  background: #ffff99;
+}
