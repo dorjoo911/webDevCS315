@@ -2,6 +2,9 @@ body {
   background-color: black;
   margin: 20px;
 }
+li {
+  margin-bottom: 10px;
+}
 a {
   color: yellowgreen;
   text-decoration: none;
