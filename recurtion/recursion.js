@@ -100,27 +100,27 @@ let a = {
   d: 3,
 };
 
-function printNode(obj) {
-  for (let key in obj) {
-    console.log("key :>> ", key);
-    if (obj.children !== null) {
-      console.log("obj.children :>> ", obj.children);
-      for (let chObj in obj.children) {
-        console.log("chObj :>> ", chObj[0]);
+function printNode(node) {
+  if (node.children !== null) {
+    if (Array.isArray(node))
+      return node.reduce(function (prev, current) {
+        // console.log(prev, current);
+        prev[current.name] = current.value;
+        return prev;
+      }, {});
+    let nameValue = {};
+    for (let subnode of Object.values(node)) {
+      let subNodeObj = printNode(subnode);
+      for (let key in subNodeObj) {
+        nameValue[key] = subNodeObj[key];
       }
     }
   }
-  //   for (let key of node) {
-  //     if(obj.children == null){
 
-  // }else {
-  //     for(let obj of children){
-
-  //     }
-  // }
-  //   }
+  return nameValue;
 }
 printNode(node1);
+
 function TreeNode(value) {
   this.value = value;
   this.descendents = [];
