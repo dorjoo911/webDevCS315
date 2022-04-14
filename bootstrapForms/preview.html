@@ -5,24 +5,66 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      .cont {
+        border: 1px solid rgb(173, 173, 173);
+        height: 300px;
+        padding: 20px;
+        background-color: lightblue;
+      }
+      #liveAlertPlaceholder {
+        font-size: 30px;
+        color: green;
+        padding: 20px;
+      }
+    </style>
   </head>
   <body>
-    <label>Name : Soo</label>
-    <button onclick="edit()">Edit</button>
+    <div class="cont">
+      <label>First Name : </label><br />
+      <label>Last Name : </label><br />
+      <label>Country : </label><br />
+      <label>Email : </label><br /><br />
+      <button onclick="edit()">Edit</button>
+      <button onclick="save()" id="liveAlertBtn">Save</button>
+      <br /><br />
+      <div id="liveAlertPlaceholder"></div>
+    </div>
     <script>
       const urlParams = new URLSearchParams(window.location.search);
-      const myParam = urlParams.get("fname");
-      console.log(urlParams.get("fname"));
+      // const myParam = urlParams.get("fname");
+      // console.log(urlParams.get("fname"));
       let label = document.getElementsByTagName("label")[0];
-      label.innerHTML =
-        urlParams.get("fname") +
-        " " +
-        urlParams.get("lname") +
-        " " +
-        urlParams.get("select");
+      label.innerHTML += urlParams.get("fname");
+      let label1 = document.getElementsByTagName("label")[1];
+      label1.innerHTML += urlParams.get("lname");
+      let label2 = document.getElementsByTagName("label")[2];
+      label2.innerHTML += urlParams.get("select");
+      let label3 = document.getElementsByTagName("label")[3];
+      label3.innerHTML += urlParams.get("email");
 
       function edit() {
-        window.location.href = "submitForm.html" + window.location.search;
+        window.location.href = "validation.html" + window.location.search;
+      }
+
+      var alertPlaceholder = document.getElementById("liveAlertPlaceholder");
+      var alertTrigger = document.getElementById("liveAlertBtn");
+
+      function alert(message, type) {
+        var wrapper = document.createElement("div");
+        wrapper.innerHTML =
+          '<div class="alert alert-' +
+          type +
+          ' alert-dismissible" role="alert">' +
+          message;
+
+        alertPlaceholder.append(wrapper);
+      }
+
+      if (alertTrigger) {
+        alertTrigger.addEventListener("click", function () {
+          alert("Nice, you successfully saved this!", "success");
+        });
       }
     </script>
   </body>

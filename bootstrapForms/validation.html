@@ -66,6 +66,7 @@
                   if (!form.checkValidity()) {
                     event.preventDefault();
                     event.stopPropagation();
+                    console.log(" I am here ");
                   }
 
                   form.classList.add("was-validated");
@@ -83,7 +84,12 @@
   <body>
     <hr />
     <h3 style="text-align: center">Responsive Registration Form</h3>
-    <form class="column g-3 needs-validation" novalidate>
+    <form
+      method="get"
+      action="preview.html"
+      class="column g-3 needs-validation"
+      novalidate
+    >
       <!-- ***************** Email **********************-->
       <div class="row-sm-12">
         <div class="input-group has-validation">
@@ -102,6 +108,7 @@
             </svg>
           </span>
           <input
+            name="email"
             type="text"
             class="form-control"
             id="validationCustomUsername"
@@ -199,6 +206,7 @@
               </svg>
             </span>
             <input
+              name="fname"
               type="text"
               class="form-control"
               id="validationCustomUsername"
@@ -227,6 +235,7 @@
               </svg>
             </span>
             <input
+              name="lname"
               type="text"
               class="form-control"
               id="validationCustomUsername"
@@ -266,7 +275,12 @@
       </div>
       <!-- ***************** Selector **********************-->
       <div class="row-sm-12">
-        <select class="form-select" id="validationCustom04" required>
+        <select
+          name="select"
+          class="form-select"
+          id="validationCustom04"
+          required
+        >
           <option selected disabled value="">Select a country</option>
           <option value="1">USA</option>
           <option value="2">Canada</option>
@@ -305,10 +319,8 @@
       </div>
       <!-- ***************** Button **********************-->
 
-      <button class="btn btn-warning col-12" type="submit" id="liveAlertBtn">
-        Register
-      </button>
-      <div id="liveAlertPlaceholder"></div>
+      <button class="btn btn-warning col-12">Register</button>
+
       <br />
     </form>
   </body>

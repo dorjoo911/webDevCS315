@@ -93,6 +93,7 @@ let node1 = {
   children: [node2, node3],
   value: null,
 };
+
 function nodeArray(list) {
   let arr = [];
   if (list.children == null) {
@@ -106,23 +107,24 @@ function nodeArray(list) {
   }
   return arr;
 }
-nodeArray(node1);
+// nodeArray(node1);
 
 function nodeTree(list) {
   if (list.children == null) {
+    // console.log(list.name + ":" + list.value);
     return;
     // console.log(list.name + ":" + list.value);
   } else {
-    console.log(list.name + ":" + list.value);
+    // console.log(list.name + ":" + list.value);
     for (let child of list.children) {
-      list = child;
-      console.log(list.name + ":" + list.value);
-      nodeTree(list);
+      // list = child;
       // console.log(list.name + ":" + list.value);
+      nodeTree(child);
+      console.log(list.name + ":" + list.value);
     }
     // console.log(list.name + ":" + list.value);
   }
-  // console.log(list.name + ":" + list.value);
+  // return console.log(list.name + ":" + list.value);
 }
 // nodeTree(node1);
 
@@ -158,7 +160,14 @@ function generateList(root) {
   }
   return linkedList;
 }
-// console.log(JSON.stringify(generateList(abe)));
+console.log(JSON.stringify(generateList(abe)));
 
 // let linkedList = generateList(abe);
 // let linkedList = {value:1,next:{value:2,next:{value:3,next:{value:4}}}}
+
+function targetValue(list) {
+  // if(contains(value, "Lisa")) return true;
+  // for (let child of list)
+  search(list, "Lisa", "next", true);
+}
+// targetValue(linkedList);
