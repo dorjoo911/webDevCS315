@@ -88,3 +88,17 @@
 //   }
 // }
 // console.log("samSalaries(company) :>> ", namesOfCompany(company));
+
+/*
+1. Count the keys
+countKeys(simpleObject)=> 5
+2. List all the leaf nodes//
+listLeaves(simpleObject)=> [ { a: 1 }, { b: 2 }, { d: [ 1, 2 ] } ]
+3. List all the keys with given value
+NOTE: No need to do type conversions, I.e.convert from string to integer or viceversa, just do simple
+equals.
+findAllKeysWithGivenValue(simpleObject,1)=> [a,d]
+4. List all the keys with matching key
+findValuesOfGivenKey(simpleObject,'a')=>[1,[1,2]]
+*/
+let simpleObject = { a: 1, b: 2, c: { a: [1, 2] } };

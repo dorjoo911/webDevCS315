@@ -11,9 +11,9 @@ let company = {
     internals: [{ name: "Jack", salary: 1300 }],
   },
 };
+
 // ["sales","development","sites","internals"]
 //Returns 6700
-
 function sumSalaries(department) {
   if (Array.isArray(department)) {
     // console.log("department :>> ", department);
@@ -27,6 +27,7 @@ function sumSalaries(department) {
   return sum;
 }
 // console.log(sumSalaries(company));
+
 //  [
 //     { name: 'John' },
 //     { name: 'Alice' },
@@ -34,7 +35,6 @@ function sumSalaries(department) {
 //     { name: 'Alex' },
 //     { name: 'Jack' }
 //   ]
-
 function getEmployeeNamesObjectsArray(department) {
   if (Array.isArray(department))
     return department.map((item) => {
@@ -65,6 +65,7 @@ Object.values(department) =
     internals: [{ name: "Jack", salary: 1300 }],
   },
 ]
+
 loop 1:
 subdep =   
 [
@@ -72,6 +73,7 @@ subdep =
     { name: "Alice", salary: 600 }, map loop 2: { name: item.name=Alice }
 ]
 names=[{ name: John }, { name: Alice },] //line 46
+
 loop 2:
 subdep = 
 {
@@ -81,7 +83,7 @@ subdep =
     ], //subdepartments
     internals: [{ name: "Jack", salary: 1300 }],
 },
-      ***new obj values***
+      *** new obj values ***
       Object.values(department) = 
       [
         [
@@ -91,14 +93,15 @@ subdep =
         [{ name: "Jack", salary: 1300 }]
       ]
 
-        inner loop 1:
+    **** inner loop 1:
         subdep =
         [
           { name: "Peter", salary: 2000 }, //map iiner loop 1: { name: item.name=Peter}
           { name: "Alex", salary: 1800 }, //map iiner loop 1: { name: item.name=Alex}
         ]
         names=[{ name: John }, { name: Alice },{name: Peter}, {name:Alex}] //line 46
-        inner loop 2:
+    
+    **** inner loop 2:
         subdep = [{ name: "Jack", salary: 1300 }] //map iiner loop 2: { name: item.name=Jack}
         names=[{ name: John }, { name: Alice },{name: Peter}, {name:Alex}, {name: Jack}] //line 46
 

@@ -93,46 +93,72 @@ let node1 = {
   children: [node2, node3],
   value: null,
 };
-
-let a = {
-  b: 1,
-  c: 2,
-  d: 3,
-};
-
-function printNode(node) {
-  if (node.children !== null) {
-    if (Array.isArray(node))
-      return node.reduce(function (prev, current) {
-        // console.log(prev, current);
-        prev[current.name] = current.value;
-        return prev;
-      }, {});
-    let nameValue = {};
-    for (let subnode of Object.values(node)) {
-      let subNodeObj = printNode(subnode);
-      for (let key in subNodeObj) {
-        nameValue[key] = subNodeObj[key];
-      }
+function nodeArray(list) {
+  let arr = [];
+  if (list.children == null) {
+    return list.name;
+  } else {
+    for (let child of list.children) {
+      let subNode = nodeArray(child);
+      arr = arr.concat(subNode);
+      console.log("arr :>> ", arr);
     }
   }
-
-  return nameValue;
+  return arr;
 }
-printNode(node1);
+nodeArray(node1);
+
+function nodeTree(list) {
+  if (list.children == null) {
+    return;
+    // console.log(list.name + ":" + list.value);
+  } else {
+    console.log(list.name + ":" + list.value);
+    for (let child of list.children) {
+      list = child;
+      console.log(list.name + ":" + list.value);
+      nodeTree(list);
+      // console.log(list.name + ":" + list.value);
+    }
+    // console.log(list.name + ":" + list.value);
+  }
+  // console.log(list.name + ":" + list.value);
+}
+// nodeTree(node1);
 
 function TreeNode(value) {
   this.value = value;
   this.descendents = [];
 }
-
 // create nodes with values
 const abe = new TreeNode("Abe");
 const homer = new TreeNode("Homer");
 const bart = new TreeNode("Bart");
 const lisa = new TreeNode("Lisa");
 const maggie = new TreeNode("Maggie");
-
 // associate root with is descendents
 abe.descendents.push(homer);
 homer.descendents.push(bart, lisa, maggie);
+
+function ListNode(value) {
+  this.value = value;
+}
+
+function generateList(root) {
+  if (root.descendents == null || root.descendents.length == 0)
+    return new ListNode(root.value);
+  let linkedList = new ListNode(root.value); //{value:"abe"} //2nd {value:"homer"}
+  let list = linkedList; // homer.next = maggie
+  for (let eachChild of root.descendents) {
+    //{Homer}, {lisa},{bart}
+
+    list.next = generateList(eachChild);
+    list = list.next;
+    // linkedList.next = generateList(eachChild);
+  }
+  return linkedList;
+}
+// console.log(JSON.stringify(generateList(abe)));
+
+// let linkedList = generateList(abe);
+// let linkedList = {value:1,next:{value:2,next:{value:3,next:{value:4}}}}

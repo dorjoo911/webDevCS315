@@ -85,10 +85,10 @@ function editRow(obj) {
   rating.innerHTML =
     "<input type='text' id='name_text' value='" + rating_val + "'>";
 }
-function saveThenEdit(obj) {
-  let itemName = obj.parentNode.parentNode.parentNode.children[0];
-  let catName = obj.parentNode.parentNode.parentNode.children[1];
-  let quantity = obj.parentNode.parentNode.parentNode.children[2];
-  let rating = obj.parentNode.parentNode.parentNode.children[3];
-  console.log("itemName :>> ", itemName);
-}
+// function saveThenEdit(obj) {
+//   // let itemName = document.querySelector("#name_text").value;
+//   let catName = obj.parentNode.parentNode.children[1];
+//   let quantity = obj.parentNode.parentNode.parentNode.children[2];
+//   let rating = obj.parentNode.parentNode.parentNode.children[3];
+//   console.log("itemName :>> ", catName);
+// }

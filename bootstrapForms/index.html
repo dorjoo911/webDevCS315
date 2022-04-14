@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+      body {
+        position: absolute;
+        right: 100px;
+      }
+      hr {
+        border: 3px solid rgb(228, 191, 98);
+      }
+      .input-group {
+        margin-bottom: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <hr />
+      <h3>Responsive Registration Form</h3>
+      <form class="column g-3 needs-validation" novalidate>
+        <div class="input-group">
+          <span class="input-group-addon"
+            ><i class="glyphicon glyphicon-envelope"></i
+          ></span>
+          <input
+            id="email"
+            type="text"
+            class="form-control"
+            name="email"
+            placeholder="Email"
+          />
+        </div>
+
+        <div class="input-group">
+          <span class="input-group-addon"
+            ><i class="glyphicon glyphicon-lock"></i
+          ></span>
+          <input
+            id="password"
+            type="password"
+            class="form-control"
+            name="password"
+            placeholder="Password"
+          />
+        </div>
+
+        <div class="input-group">
+          <span class="input-group-addon"
+            ><i class="glyphicon glyphicon-lock"></i
+          ></span>
+          <input
+            id="password"
+            type="password"
+            class="form-control"
+            name="password"
+            placeholder="Re-type Password"
+          />
+        </div>
+
+        <br />
+        <div class="input-group">
+          <span class="input-group-addon"
+            ><i class="glyphicon glyphicon-user"></i
+          ></span>
+          <input
+            id="msg"
+            type="text"
+            class="form-control"
+            name="msg"
+            placeholder="First Name"
+          />
+          <span class="input-group-addon"
+            ><i class="glyphicon glyphicon-user"></i
+          ></span>
+          <input
+            id="msg"
+            type="text"
+            class="form-control"
+            name="msg"
+            placeholder="Last Name"
+          />
+        </div>
+      </form>
+      <br />
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="flexRadioDefault"
+          id="flexRadioDefault1"
+        />
+        <label class="form-check-label" for="flexRadioDefault1"> Male </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="flexRadioDefault"
+          id="flexRadioDefault2"
+          checked
+        />
+        <label class="form-check-label" for="flexRadioDefault2"> Female </label>
+      </div>
+
+      <select
+        class="form-select form-select-lg mb-3"
+        aria-label=".form-select-lg example"
+      >
+        <option selected>Open this select menu</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+    </div>
+
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        value=""
+        id="flexCheckDefault"
+      />
+      <label class="form-check-label" for="flexCheckDefault">
+        I agree with terms and conditions
+      </label>
+    </div>
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        value=""
+        id="flexCheckChecked"
+        checked
+      />
+      <label class="form-check-label" for="flexCheckChecked">
+        I want to receive the newsletter
+      </label>
+    </div>
+    <button type="button" class="btn btn-warning">Register</button>
+  </body>
+  <!-- 
+2. Give Validation messages whenever any field is empty( Refer Validation in Bootstrap).  
+3. If Passwords doesn’t match, show validation message 
+4. Password should satisfy the following rules , otherwise throw validation message. 
+a. Length should be between 8 and 14 characters. 
+b. Should have atleast one special character 
+c. Should have atleast one Capital Letter and one number. 
+5. If User clicks on Register , show the preview page with all the entered information. All Input 
+fields should be shown as labels.  Show two buttons on the preview page, Edit and Save.  
+6. If User hits Edit, show the same form with the user entered data populated in the fields. 
+7. If User hits Save, show “Thank you” Message. Design it in your own way -->
+</html>
