@@ -1,4 +1,5 @@
 // ********************* PART I ***************************
+
 // let list = { value: 1 };
 // list.next = { value: 2 };
 // let newList = { value: 3, next: list };
@@ -197,7 +198,7 @@ function getEmployeeNameSalary(department) {
   }
   return nameSalary;
 }
-console.log(getEmployeeNameSalary(company));
+// console.log(getEmployeeNameSalary(company));
 /*
   [
       { name: "Peter", salary: 2000 },
@@ -247,39 +248,60 @@ let node1 = {
   children: [node2, node3],
   value: null,
 };
+function collectNames(list) {
+  let names = [];
+  while (list != null) {
+    names.push(list.value);
+    list = list.next;
+  }
+  return names;
+}
+// console.log(collectNames(linkedList));
 
+function collectNamesRec(list) {
+  if (list == null) return null;
+
+  let values = collectNamesRec(list.next);
+  return [list.value].concat(values);
+}
+// console.log(collectNamesRec(linkedList));
+
+function printValues(list) {
+  if (list == null) return;
+  console.log(list.value);
+  printValues(list.next);
+}
+// printValues(linkedList);
+
+function iterateList(newList) {
+  do {
+    console.log(newList.value);
+    newList = newList.next;
+  } while (newList != null);
+}
 function nodeArray(list) {
   let arr = [];
   if (list.children == null) {
     return list.name;
   } else {
     for (let child of list.children) {
-      // console.log("child :>> ", child);
       let subNode = nodeArray(child);
       arr = arr.concat(subNode);
-      console.log("arr :>> ", arr);
     }
   }
   return arr;
 }
-nodeArray(node1);
+// nodeArray(node1);
 
 function nodeTree(list) {
   if (list.children == null) {
-    console.log(list.name + ":" + list.value);
     return;
-    // console.log(list.name + ":" + list.value);
   } else {
-    // console.log(list.name + ":" + list.value);
+    console.log(list.name + ":" + list.value);
     for (let child of list.children) {
-      // list = child;
-      // console.log(list.name + ":" + list.value);
       nodeTree(child);
-      console.log(list.name + ":" + list.value);
     }
-    // console.log(list.name + ":" + list.value);
   }
-  // return console.log(list.name + ":" + list.value);
 }
 // nodeTree(node1);
 
@@ -302,10 +324,41 @@ homer.descendents.push(bart, lisa, maggie);
 function ListNode(value) {
   this.value = value;
 }
+//1
+function printNames(root) {
+  console.log(root.value);
+  for (let child of root.descendents) {
+    printNames(child);
+  }
+}
+// printNames(abe);
+//2
+function contains(root, target) {
+  if (root.value == target) return true;
+  for (let child of root.descendents) {
+    let found = contains(child, target);
+    if (found) return true;
+  }
+  return false;
+}
 
+// console.log(contains(abe,"Lisa"));
+//3
+function findSubtree(root, target) {
+  if (root.value == target) return root;
+  for (let child of root.descendents) {
+    let tree = findSubtree(child, target);
+    if (tree) return tree;
+  }
+  return null;
+}
+console.log(findSubtree(abe, "sdfsdfs"));
+
+function ListNode(value) {
+  this.value = value;
+}
+//4
 function generateList(root) {
-  if (root.descendents == null || root.descendents.length == 0)
-    return new ListNode(root.value);
   let linkedList = new ListNode(root.value); //{value:"abe"} //2nd {value:"homer"}
   let list = linkedList; // homer.next = maggie
   for (let eachChild of root.descendents) {
@@ -313,58 +366,46 @@ function generateList(root) {
 
     list.next = generateList(eachChild);
     list = list.next;
+
     // linkedList.next = generateList(eachChild);
   }
   return linkedList;
 }
-// console.log(JSON.stringify(generateList(abe)));
 
 let linkedList = generateList(abe);
-// let linkedList = {value:1,next:{value:2,next:{value:3,next:{value:4}}}}
+// console.log(linkedList);
 
-function traverse(list) {
-  if (list.value == "Lisa") return console.log("true :>> ", true);
-  list = list.next;
-  return traverse(list);
+//5
+function findListNode(list, node) {
+  if (list == null) return null;
+  if (list.value == node) return list;
+  return findListNode(list.next, node);
 }
-// traverse(linkedList);
+// console.log(findListNode(linkedList,"Lisa"))
 
-let simpleObject = { a: 1, b: 2, c: { a: [1, 2] } };
-function countNodes(list) {
-  if (list == null) return 0;
-  return 1 + countNodes(list.next);
+//6
+function treeModifier(root, modifierFunc) {
+  root.value = modifierFunc(root.value);
+  for (let child of root.descendents) {
+    treeModifier(child, modifierFunc);
+  }
 }
-console.log(countNodes(linkedList));
+//allCaps
+// treeModifier(abe, (treeNode)=> treeNode.toUpperCase());
+// console.log(abe);
+// //reverse String
+// treeModifier(abe, (node)=>node.split("").reverse().join(""));
+// console.log(abe);
+// //add Stars
+// treeModifier(abe,(node)=>"***"+node+"***");
+// console.log(abe);
 
-function collectNames(list) {
-  let names = [];
-  while (list != null) {
-    names.push(list.value);
-    list = list.next;
+//7
+function treeCollector(tree) {
+  let names = [tree.value];
+  for (let child of tree.descendents) {
+    names = names.concat(treeCollector(child));
   }
   return names;
 }
-console.log(collectNames(linkedList));
-
-function collectNamesRec(list) {
-  if (list == null) return null;
-
-  let values = collectNamesRec(list.next);
-  return [list.value].concat(values);
-}
-console.log(collectNamesRec(linkedList));
-
-function printValues(list) {
-  if (list == null) return;
-  console.log(list.value);
-  printValues(list.next);
-}
-printValues(linkedList);
-
-function iterateList(newList) {
-  do {
-    console.log(newList.value);
-    newList = newList.next;
-  } while (newList != null);
-}
-iterateList(abe);
+// console.log(treeCollector(abe))
