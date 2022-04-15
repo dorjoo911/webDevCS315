@@ -328,3 +328,43 @@ function traverse(list) {
   return traverse(list);
 }
 // traverse(linkedList);
+
+let simpleObject = { a: 1, b: 2, c: { a: [1, 2] } };
+function countNodes(list) {
+  if (list == null) return 0;
+  return 1 + countNodes(list.next);
+}
+console.log(countNodes(linkedList));
+
+function collectNames(list) {
+  let names = [];
+  while (list != null) {
+    names.push(list.value);
+    list = list.next;
+  }
+  return names;
+}
+console.log(collectNames(linkedList));
+
+function collectNamesRec(list) {
+  if (list == null) return null;
+
+  let values = collectNamesRec(list.next);
+  return [list.value].concat(values);
+}
+console.log(collectNamesRec(linkedList));
+
+function printValues(list) {
+  if (list == null) return;
+  console.log(list.value);
+  printValues(list.next);
+}
+printValues(linkedList);
+
+function iterateList(newList) {
+  do {
+    console.log(newList.value);
+    newList = newList.next;
+  } while (newList != null);
+}
+iterateList(abe);
