@@ -148,13 +148,3 @@ function getEmployeeNameInArray(department) {
 }
 
 // console.log(getEmployeeNameInArray(company));
-
-// let a = [
-//   { name: "Peter", salary: 2000 },
-//   { name: "Alex", salary: 1800 },
-// ];
-
-// function sum(arr) {
-//   return arr.reduce((prev, current) => prev + current.salary, 0);
-// }
-// console.log(sum(a));
