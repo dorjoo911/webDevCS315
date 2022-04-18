@@ -19,7 +19,7 @@ function sumSalaries(department) {
     // console.log("department :>> ", department);
     return department.reduce((prev, current) => prev + current.salary, 0);
   }
-  let sum = 0;
+  let sum = 0; //L1.1600; L2{}; L21.3800 L22.1300; return
   for (let subdep of Object.values(department)) {
     // console.log("subdep :>> ", subdep);
     sum += sumSalaries(subdep);
@@ -42,8 +42,11 @@ function getEmployeeNamesObjectsArray(department) {
     });
   let names = [];
   for (let subdep of Object.values(department)) {
+    // console.log("subdep :>> ", subdep);
     let subDepNames = getEmployeeNamesObjectsArray(subdep);
+    // console.log("subDepNames :>> ", subDepNames);
     names = names.concat(subDepNames); // recursively call for subdepartments, sum the results
+    // console.log("names :>> ", names);
   }
   return names;
 }
@@ -111,25 +114,19 @@ subdep =
 function getEmployeeNameSalary(department) {
   if (Array.isArray(department))
     return department.reduce(function (prev, current) {
-      // console.log(prev, current);
       prev[current.name] = current.salary; //subDeptObj = { John:1000, Alice:600 }; // obj.d shine key ogoh
       return prev;
     }, {});
   let nameSalary = {}; //{Bat:6}
   for (let subdep of Object.values(department)) {
     let subDeptObj = getEmployeeNameSalary(subdep);
-    // console.log("subDeptObj :>> ", subDeptObj);
     for (let key in subDeptObj) {
-      // console.log("key :>> ", key); // John
-      // console.log("object :>> ", subDeptObj[key]); // 1000
       nameSalary[key] = subDeptObj[key]; // nameSalary[key]-->John = subDeptObj[key]-->1000;
-      // nameSalary["Bat"] = 100; //updated
-      // nameSalary["Bold"] = 200; //created
     }
   }
   return nameSalary;
 }
-console.log(getEmployeeNameSalary(company));
+// console.log(getEmployeeNameSalary(company));
 /*
   [
       { name: "Peter", salary: 2000 },
@@ -146,5 +143,4 @@ function getEmployeeNameInArray(department) {
   }
   return names;
 }
-
-// console.log(getEmployeeNameInArray(company));
+console.log(getEmployeeNameInArray(company));

@@ -5,6 +5,7 @@ body {
 }
 li {
   margin-bottom: 10px;
+  font-weight: 900;
 }
 a {
   color: yellowgreen;
@@ -36,7 +37,7 @@ a:hover {
 }
 .marquee span {
   float: left;
-  width: 600px;
+  width: 500px;
 }
 
 .marquee:hover div {
@@ -48,7 +49,7 @@ a:hover {
     left: 0%;
   }
   100% {
-    left: -1100px;
+    left: -800px;
   }
 }
 
@@ -60,4 +61,5 @@ img {
   top: 0px;
   z-index: -1;
   height: 600px;
+  width: 100%;
 }
