@@ -34,7 +34,7 @@ function allLeafNodes(json) {
   }
   return leaves;
 }
-// console.log(allLeafNodes(json));
+console.log(allLeafNodes(json));
 
 function countKeys(json) {
   if (Array.isArray(json) || typeof json != "object") return 1;

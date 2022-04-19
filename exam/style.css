@@ -1,0 +1,146 @@
+body {
+  background-color: bisque;
+  border-top: 3px solid black;
+  margin-top: 0;
+}
+.container {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr 0.5fr;
+  grid-template-areas:
+    "nav nav nav nav nav nav "
+    "top top top top top top "
+    "prag prag prag prag prag prag "
+    "side1 content1 content2 content3 content4 side2 ";
+  border: 1px solid rgb(108, 181, 206);
+  column-gap: 20px;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 12px;
+}
+
+nav {
+  grid-area: nav;
+  background-color: #00ffff;
+  display: flex;
+  justify-content: space-evenly;
+}
+.top {
+  grid-area: top;
+  display: flex;
+  margin-top: 10px;
+  justify-content: space-between;
+}
+.prag {
+  grid-area: prag;
+}
+.side1 {
+  grid-area: side1;
+}
+.side2 {
+  grid-area: side2;
+}
+.content1 {
+  grid-area: content1;
+}
+.content2 {
+  grid-area: content2;
+}
+.content3 {
+  grid-area: content3;
+}
+.content4 {
+  grid-area: content4;
+}
+.mainPra {
+  float: left;
+}
+
+#img {
+  height: 80px;
+  border-radius: 50%;
+}
+img {
+  height: 80px;
+  float: left;
+  margin-right: 5px;
+}
+#topPra {
+  margin-left: 10px;
+  background-color: coral;
+  padding: 5px;
+}
+
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width: 600px) {
+  body {
+    background-color: burlywood;
+    border-right: 3px solid black;
+    margin-top: 0;
+  }
+  .container {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 1fr 0.5fr;
+    grid-template-rows: 0.1fr 0.5fr 0.5fr 1fr 1fr;
+    grid-template-areas:
+      "nav nav nav nav  "
+      "top top top top  "
+      "prag prag prag prag  "
+      "side1 content1 content2 side2 "
+      "side1 content3 content4 side2 ";
+    border: 1px solid rgb(9, 26, 180);
+    margin: 10px;
+    padding: 10px;
+  }
+
+  nav {
+    grid-area: nav;
+    background-color: #00ffff;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .top {
+    grid-area: top;
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+  }
+  .prag {
+    grid-area: prag;
+  }
+  .side1 {
+    grid-area: side1;
+  }
+  .side2 {
+    grid-area: side2;
+  }
+  .content1 {
+    grid-area: content1;
+    margin-left: 10px;
+  }
+  .content2 {
+    grid-area: content2;
+    margin-left: 10px;
+  }
+  .content3 {
+    grid-area: content3;
+    margin-left: 10px;
+  }
+  .content4 {
+    grid-area: content4;
+    margin-left: 10px;
+  }
+
+  #img {
+    height: 80px;
+    border-radius: 50%;
+  }
+  img {
+    height: 80px;
+  }
+  #topPra {
+    margin-left: 10px;
+    background-color: coral;
+    padding: 5px;
+  }
+}
