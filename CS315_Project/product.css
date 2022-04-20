@@ -6,7 +6,7 @@ body {
 .container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 0.1fr 1fr 1fr;
+  grid-template-rows: 0.1fr 1fr;
   grid-template-areas:
     "navBar navBar navBar navBar navBar"
     "side1 cat1 cat2 cat3 cat4"
