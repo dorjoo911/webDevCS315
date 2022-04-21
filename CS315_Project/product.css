@@ -28,7 +28,6 @@ body {
   grid-area: side1;
   border-right: 5px solid lightgray;
   margin-right: 10px;
-  margin-left: 20px;
 }
 .cat1,
 .cat2,

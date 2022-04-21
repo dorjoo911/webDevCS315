@@ -1,34 +1,22 @@
 body {
-  background-image: linear-gradient(
-    45deg,
-    rgb(171, 216, 218) 0%,
-    #f7faf8 52%,
-    #51c9eb 90%
-  );
+  background: white;
   margin: 0;
 }
 
-.container {
+/* .container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 0fr 0.1fr 1fr 1fr 0.1fr;
-  column-gap: 20px;
-
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 0.1fr 1fr 1fr;
   grid-template-areas:
-    "navBar navBar navBar navBar navBar navBar"
-    "links links links links links links"
-    "side1 main main main main side2"
-    "side1 cat1 cat2 cat3 cat4 side2"
-    "footer footer footer footer footer footer";
-}
+    "navBar navBar navBar"
+    "side1 cat1 desc"
+    "footer footer footer";
+} */
 
 .navBar {
   grid-area: navBar;
   background-color: aqua;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 10;
+  margin-bottom: 20px;
 }
 .footer {
   grid-area: footer;
@@ -36,46 +24,42 @@ body {
   color: white;
   margin-top: 20px;
 }
-.links {
-  grid-area: links;
-  background-color: rgb(46, 44, 44);
-  position: fixed;
-  top: 70px;
-  width: 100%;
-  z-index: 9;
-}
-/* .links > a:hover {
-  color: blue;
-} */
-.main {
-  grid-area: main;
-  background-color: rgb(206, 133, 133);
-  margin-top: 50px;
-}
-.cat1,
-.cat2,
-.cat3,
-.cat4 {
-  background-color: white;
-  margin-top: 5px;
-  text-align: center;
+.side1 {
+  grid-area: side1;
+  border-right: 5px solid lightgray;
+  margin-right: 10px;
 }
 .cat1 {
   grid-area: cat1;
+  background-color: white;
+  text-align: center;
 }
-.cat2 {
-  grid-area: cat2;
-}
-.cat3 {
-  grid-area: cat3;
-}
-.cat4 {
-  grid-area: cat4;
+
+.desc {
+  grid-area: desc;
 }
 .card-img-top {
-  width: 90%;
+  width: 100%;
 }
-/* ******** header CSS ********** */
+a {
+  text-decoration: none;
+  margin: 5px;
+  text-align: left;
+}
+@media screen and (max-width: 600px) {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+      "navBar"
+      "side1"
+      "cat1"
+      "desc"
+      "footer";
+  }
+}
+/* *********** NAVBAR CSS ************** */
 .navBar {
   display: grid;
   grid-template-columns: 1fr 2fr 6.5fr 1fr 2fr 1fr;
@@ -104,7 +88,11 @@ body {
   grid-column: 6;
   grid-row: 1;
 }
-/* ****** FOOTER CSS ******* */
+
+/* **************  ****** FOOTER CSS ******* */
+/* **************  ****** FOOTER CSS ******* */
+/* **************  ****** FOOTER CSS ******* */
+/* **************  ****** FOOTER CSS ******* */
 :root {
   --black: #000;
   --white: #fff;
@@ -121,11 +109,11 @@ body {
   background-color: rgb(46, 44, 44);
   /* background-color: #fa8bff; */
   /* background-image: linear-gradient(
-    45deg,
-    #fa8bff 0%,
-    #2bd2ff 52%,
-    #2bff88 90%
-  ); */
+        45deg,
+        #fa8bff 0%,
+        #2bd2ff 52%,
+        #2bff88 90%
+      ); */
 }
 
 .link-box {
