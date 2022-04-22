@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Preview</title>
+    <style>
+      .box {
+        width: 400px;
+        background-color: cyan;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin: 0px 0px 20px 20px;
+        padding: 10px;
+      }
+      button {
+        padding: 5px 15px;
+        margin: 0px 20px;
+        border-radius: 4px;
+      }
+      label {
+        font-weight: bold;
+        font-family: "Courier New", Courier, monospace;
+      }
+    </style>
+    <script src="app.js"></script>
+  </head>
+  <body>
+    <div class="box">
+      <div class="heading"><h1>Preview Information</h1></div>
+      <label>Email</label>
+      <label>Password</label>
+      <label>Confirm Password</label>
+      <label>Name</label>
+      <label>Gender</label>
+      <label>Country</label>
+      <label>Terms and Conditions</label>
+      <label>Newsletter</label>
+      <div>
+        <button onclick="edit()">Edit</button>
+        <button onclick="save()">Save</button>
+      </div>
+    </div>
+    <script>
+      // const urlParams = new URLSearchParams(window.location.search);
+
+      // let lableEmail = document.getElementsByTagName("label")[0];
+      // lableEmail.innerHTML =
+      //   lableEmail.innerHTML + ":  " + urlParams.get("email");
+
+      // let lableTwo = document.getElementsByTagName("label")[1];
+      // lableTwo.innerHTML =
+      //   lableTwo.innerHTML + ":  " + urlParams.get("password");
+
+      // let lableThree = document.getElementsByTagName("label")[2];
+      // lableThree.innerHTML =
+      //   lableThree.innerHTML + ":  " + urlParams.get("confirmPassword");
+
+      // let lableFour = document.getElementsByTagName("label")[3];
+      // lableFour.innerHTML =
+      //   lableFour.innerHTML +
+      //   ": " +
+      //   urlParams.get("fname") +
+      //   " " +
+      //   urlParams.get("lname");
+
+      // let lableFive = document.getElementsByTagName("label")[4];
+      // lableFive.innerHTML =
+      //   lableFive.innerHTML + ":  " + urlParams.get("gender");
+
+      // let lableSix = document.getElementsByTagName("label")[5];
+      // lableSix.innerHTML =
+      //   lableSix.innerHTML + ":  " + urlParams.get("selection");
+
+      // let lableSeven = document.getElementsByTagName("label")[6];
+      // lableSeven.innerHTML =
+      //   lableSeven.innerHTML + ":  " + urlParams.get("conditions");
+
+      // let labelEight = document.getElementsByTagName("label")[7];
+      // labelEight.innerHTML =
+      //   labelEight.innerHTML + ":  " + urlParams.get("newsletter");
+
+      // function edit() {
+      //   window.location.href = "register.html";
+      // }
+      // function save() {
+      //   let tableArray = JSON.parse(localStorage.getItem("tableArray"));
+      //   //userArray.push({firstName: urlParams.get("fname"), lastName: urlParams.get("lname"),  email: urlParams.get("email"), password: urlParams.get("password"), role: '' });
+      //   console.log(tableArray);
+      //   tableArray.push({
+      //     firstName: urlParams.get("fname"),
+      //     lastName: urlParams.get("lname"),
+      //     email: urlParams.get("email"),
+      //     password: urlParams.get("password"),
+      //     role: "",
+      //   });
+      //   console.log(tableArray);
+      //   localStorage.setItem("tableArray", JSON.stringify(tableArray));
+      //   console.log(
+      //     "This is new",
+      //     JSON.parse(localStorage.getItem("tableArray"))
+      //   );
+      //   window.location.href = "login1.html";
+      //   alert("Thank You!!!");
+      // }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      .roundImage {
+        border-radius: 50%;
+        width: 100px;
+        object-fit: cover;
+        height: 100px;
+        justify-self: center;
+      }
+      .main {
+        display: grid;
+        margin: auto;
+        gap: 15px;
+        width: 400px;
+        height: 300px;
+        font-size: 20px;
+        margin-top: 20px;
+        padding: 15px;
+        background-color: black;
+        border: 1px solid white;
+        color: white;
+      }
+      .innerDiv {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 15px;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <!--         <img src ="https://1920x1080hdwallpapers.com/image/201612/brands/7322/amazon-symbol.jpg" class="roundImage" style="max-width: 100%px; object-fit: cover";/> -->
+      <!-- <img src = /cs315/img/amazon_Logo.jpg alt ="Amazon Logo" class="roundImage" style="max-width: 100%px; object-fit: cover";/> -->
+      <div class="innerDiv">
+        <label>Email</label>
+        <input type="text" id="email" />
+        <label>Password</label>
+        <input type="text" id="password" />
+      </div>
+      <button
+        style="
+          justify-self: center;
+          background-color: rgb(185, 185, 250);
+          border-radius: 10px;
+          font-size: 15px;
+          width: 120px;
+        "
+        onclick="login();"
+      >
+        Login
+      </button>
+      <div style="justify-self: center">
+        <a href="register.html" target="_self" style="color: white"
+          >New User? SignUp</a
+        >
+      </div>
+    </div>
+    <script>
+      function login() {
+        let email = document.getElementById("email").value;
+        let pwd = document.getElementById("password").value;
+
+        let tableArray = JSON.parse(localStorage.getItem("tableArray"));
+        console.log("This is new array", tableArray);
+
+        if (email == "manager@gmail.com") {
+          if (pwd == "Manager1@pwd") {
+            window.location.href = "inventoryProduct.html";
+          } else if (pwd == "") {
+            alert("Please enter passwod!");
+          } else {
+            alert("Wrong Password!");
+          }
+        } else if (email == "customer1@email.com") {
+          if (pwd == "Customer1@123456") {
+            window.location.href = "product.html";
+          }
+        } else {
+          let loggedIn = false;
+          for (let element of tableArray) {
+            if (element.email == email) {
+              if (element.password == pwd) {
+                alert("Welcome to my page!!!");
+                loggedIn = true;
+                window.location.href = "mainFrame.html";
+              } else {
+                alert("Wrong Password!");
+              }
+            }
+          }
+          if (loggedIn === false) {
+            alert("Email Invalid, please sign up! ");
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

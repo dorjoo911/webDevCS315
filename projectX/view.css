@@ -5,17 +5,14 @@ body {
 
 /* .container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 0.1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 0.1fr 1fr 1fr;
   grid-template-areas:
-    "navBar navBar navBar navBar navBar"
-    "side1 cat1 cat2 cat3 cat4"
-    "footer footer footer footer footer";
+    "navBar navBar navBar"
+    "side1 cat1 desc"
+    "footer footer footer";
 } */
-.container,
-.contents {
-  display: flex;
-}
+
 .navBar {
   grid-area: navBar;
   background-color: aqua;
@@ -32,24 +29,14 @@ body {
   border-right: 5px solid lightgray;
   margin-right: 10px;
 }
-.cat1,
-.cat2,
-.cat3,
-.cat4 {
+.cat1 {
+  grid-area: cat1;
   background-color: white;
   text-align: center;
 }
-.cat1 {
-  grid-area: cat1;
-}
-.cat2 {
-  grid-area: cat2;
-}
-.cat3 {
-  grid-area: cat3;
-}
-.cat4 {
-  grid-area: cat4;
+
+.desc {
+  grid-area: desc;
 }
 .card-img-top {
   width: 100%;
@@ -63,11 +50,13 @@ a {
   .container {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 0.1fr 1fr 1fr;
+    grid-template-rows: 0.1fr 1fr 1fr 1fr 1fr;
     grid-template-areas:
-      "navBar navBar navBar navBar navBar"
-      "side1 cat1 cat2 cat3 cat4"
-      "footer footer footer footer footer";
+      "navBar"
+      "side1"
+      "cat1"
+      "desc"
+      "footer";
   }
 }
 /* *********** NAVBAR CSS ************** */
@@ -120,11 +109,11 @@ a {
   background-color: rgb(46, 44, 44);
   /* background-color: #fa8bff; */
   /* background-image: linear-gradient(
-      45deg,
-      #fa8bff 0%,
-      #2bd2ff 52%,
-      #2bff88 90%
-    ); */
+        45deg,
+        #fa8bff 0%,
+        #2bd2ff 52%,
+        #2bff88 90%
+      ); */
 }
 
 .link-box {

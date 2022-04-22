@@ -3,19 +3,15 @@ body {
   margin: 0;
 }
 
-/* .container {
+.container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 0.1fr 1fr;
+  /* grid-template-rows: 1fr 1fr; */
   grid-template-areas:
-    "navBar navBar navBar navBar navBar"
-    "side1 cat1 cat2 cat3 cat4"
-    "footer footer footer footer footer";
-} */
-.container,
-.contents {
-  display: flex;
+    "side1 Productcontainer Productcontainer Productcontainer Productcontainer"
+    "side1 Productcontainer Productcontainer Productcontainer Productcontainer";
 }
+
 .navBar {
   grid-area: navBar;
   background-color: aqua;
@@ -32,14 +28,14 @@ body {
   border-right: 5px solid lightgray;
   margin-right: 10px;
 }
-.cat1,
+/* .cat1,
 .cat2,
 .cat3,
 .cat4 {
   background-color: white;
   text-align: center;
-}
-.cat1 {
+} */
+/* .cat1 {
   grid-area: cat1;
 }
 .cat2 {
@@ -50,7 +46,7 @@ body {
 }
 .cat4 {
   grid-area: cat4;
-}
+} */
 .card-img-top {
   width: 100%;
 }
@@ -60,13 +56,13 @@ a {
   text-align: left;
 }
 @media screen and (max-width: 600px) {
-  .container {
+  .Productcontainer {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 0.1fr 1fr 1fr;
     grid-template-areas:
       "navBar navBar navBar navBar navBar"
-      "side1 cat1 cat2 cat3 cat4"
+      "side1 Productcontainer Productcontainer Productcontainer"
       "footer footer footer footer footer";
   }
 }

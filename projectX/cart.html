@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>E-commerse.com</title>
+    <title>E-commerse.com/products</title>
     <!-- footer's-->
     <link
       rel="stylesheet"
@@ -26,11 +26,10 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="cart.css" />
     <script src="app.js"></script>
   </head>
   <body>
-    <!-- navBar Kelifa -->
     <div class="navBar">
       <!-- <div class="p-2 bd-highlight"> -->
       <div class="logo">
@@ -67,9 +66,9 @@
             All
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li><a class="dropdown-item" href="product.html">Products</a></li>
-            <li><a class="dropdown-item" href="cart.html">Your picks</a></li>
-            <li><a class="dropdown-item" href="view.html">Special</a></li>
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
         </div>
         <input
@@ -128,7 +127,7 @@
         >
       </div>
       <div class="cart">
-        <a href="cart.html">
+        <a href="#">
           <img
             src="https://tse2.mm.bing.net/th?id=OIP.KDAiQNM3izVq2QWBlpw_CAHaDt&pid=Api&P=0&w=326&h=163"
             style="
@@ -141,271 +140,156 @@
         /></a>
       </div>
     </div>
-    <!-- links -->
-    <div class="links">
-      <nav class="nav nav-pills flex-column flex-sm-row">
-        <a
-          id="link"
-          class="flex-sm-fill text-sm-center nav-link"
-          aria-current="page"
-          href="#main"
-          style="color: white"
-          >HOME</a
-        >
-        <a
-          style="color: white"
-          class="flex-sm-fill text-sm-center nav-link"
-          href="product.html"
-          >PRODUCTS</a
-        >
-        <a
-          style="color: white"
-          class="flex-sm-fill text-sm-center nav-link"
-          href="#"
-          >ABOUT US</a
-        >
-        <a
-          style="color: white"
-          class="flex-sm-fill text-sm-center nav-link"
-          href="validation.html"
-          >JOIN US</a
-        >
-        <a
-          style="color: white"
-          class="flex-sm-fill text-sm-center nav-link"
-          href="inventory.html"
-          >INVENTORY</a
-        >
-        <a
-          style="color: white"
-          class="flex-sm-fill text-sm-center nav-link"
-          href="cart.html"
-          tabindex="-1"
-          aria-disabled="true"
-          >MORE</a
-        >
-      </nav>
-    </div>
-    <div class="container">
-      <!-- slides Abdul -->
-      <div class="main" id="main">
-        <div
-          id="carouselExampleCaptions"
-          class="carousel slide"
-          data-bs-ride="carousel"
-        >
-          <div class="carousel-indicators">
-            <button
-              type="button"
-              data-bs-target="#carouselExampleCaptions"
-              data-bs-slide-to="0"
-              class="active"
-              aria-current="true"
-              aria-label="Slide 1"
-            ></button>
-            <button
-              type="button"
-              data-bs-target="#carouselExampleCaptions"
-              data-bs-slide-to="1"
-              aria-label="Slide 2"
-            ></button>
-            <button
-              type="button"
-              data-bs-target="#carouselExampleCaptions"
-              data-bs-slide-to="2"
-              aria-label="Slide 3"
-            ></button>
-          </div>
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img
-                src="https://m.media-amazon.com/images/I/61NRC-a1N7L._SX3000_.jpg"
-                class="d-block w-100"
-                alt="..."
-                style="
-                  max-width: 100%;
-                  object-fit: cover;
-                  height: 500px !important;
-                "
-              />
-              <div class="carousel-caption d-none d-md-block">
-                <h5>First slide label</h5>
-                <p>
-                  Some representative placeholder content for the first slide.
-                </p>
-              </div>
-            </div>
 
-            <div class="carousel-item">
-              <img
-                src="https://m.media-amazon.com/images/I/71+6X396igL._SX3000_.jpg"
-                class="d-block w-100"
-                alt="..."
-                style="
-                  max-width: 100%;
-                  object-fit: cover;
-                  height: 500px !important;
-                "
-              />
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Second slide label</h5>
-                <p>
-                  Some representative placeholder content for the second slide.
-                </p>
-              </div>
-            </div>
+    <div class="container" style="display: flex; margin: 20px">
+      <!-- Side_1 -->
+      <div class="side1" style="width: 18rem">
+        <div class="categories">
+          <h6>Department</h6>
+          <a href="#">Electronics</a><br />
+          <a href="#">Electronics</a><br />
+          <a href="#">Kids</a><br />
+          <a href="#">Kids</a>
+        </div>
+        <br />
 
-            <div class="carousel-item">
-              <img
-                src="https://m.media-amazon.com/images/I/61A8fR8doxL._SX3000_.jpg"
-                class="d-block w-100"
-                alt="..."
-                style="
-                  max-width: 100%;
-                  object-fit: cover;
-                  height: 500px !important;
-                "
-              />
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Third slide label</h5>
-                <p>
-                  Some representative placeholder content for the second slide.
-                </p>
-              </div>
-            </div>
+        <div class="ratings">
+          <h6>Ratings</h6>
+          <a href="#"> & up</a><br />
+          <a href="#"> & up</a><br />
+          <a href="#"> & up</a><br />
+          <a href="#"> & up</a>
+        </div>
+        <br />
 
-            <!-- <div class="carousel-item">
-              <img src="rose.png" class="d-block w-100" alt="..." />
-              <div
-                class="carousel-caption d-none d-md-block"
-                style="max-width: 100%; object-fit: cover; height: 500px"
-              >
-                <h5>Third slide label</h5>
-                <p>
-                  Some representative placeholder content for the third slide.
-                </p>
-              </div>
-            </div> -->
-          </div>
-          <button
-            class="carousel-control-prev"
-            type="button"
-            data-bs-target="#carouselExampleCaptions"
-            data-bs-slide="prev"
-          >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button
-            class="carousel-control-next"
-            type="button"
-            data-bs-target="#carouselExampleCaptions"
-            data-bs-slide="next"
-          >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
+        <div class="sortPrice">
+          <h6>Price</h6>
+          <a href="#">under $25</a><br />
+          <a href="#">under $25</a><br />
+          <a href="#">under $25</a><br />
+          <a href="#">$100 & Above</a>
+        </div>
+        <br />
+
+        <div class="filterQua">
+          <h6>Quantidy</h6>
+          <a href="#">under $25</a><br />
+          <a href="#">under $25</a><br />
+          <a href="#">under $25</a><br />
+          <a href="#">$100 & Above</a>
         </div>
       </div>
-      <!-- space left-->
-      <div class="side1"></div>
-      <!-- categories-->
-      <div class="categories card" style="width: 18rem"></div>
       <!-- CAT_1 -->
-      <div class="cat1 card" style="width: 18rem">
-        <h2 class="card-title">Alexa bundle</h2>
-        <a href="#">
-          <img
-            src="https://images-na.ssl-images-amazon.com/images/G/01/kindle/journeys/ZjVjZWUyNzkt/ZjVjZWUyNzkt-Yjk3MjcyZDYt-w379._SY304_CB623895970_.jpg"
-            class="card-img-top"
-            alt="..."
-        /></a>
-        <div class="card-body">
-          <div class="row priceRate" style="display: flex; text-align: left">
-            <h4>Price: $199</h4>
-            <label for="price">Electronics & security</label>
+      <div class="left-2">
+        <p class="title">In Cart</p>
+        <div class="left2-lists">
+          <img src="rose.png" style="width: 18rem" alt="" />
+          <div class="left2-content-divider">
+            <div class="left2-top-corner">
+              <p class="left2-title">Men Shirts</p>
+              <p class="left2-price">$25.00</p>
+            </div>
+            <p class="left2-categories">Clothing - Male Fashion</p>
+            <p class="content-location">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
+              sapiente quo accusantium possimus quam id qui velit commodi, dolor
+              facilis?
+            </p>
+            <div class="left2-bottom-corner">
+              <p class="left2-categories">Posted:February 18,2020</p>
+              <p class="btn-categories">View Details</p>
+            </div>
           </div>
-          <p class="card-text" style="text-align: left">
-            Description: Some quick example text to build on the card title and
-            make up the bulk of the card's content.
-            <a href="view.html" class="btn btn-warning">View more</a>
-          </p>
         </div>
-      </div>
-      <!-- CAT_2 -->
-      <div class="cat2 card" style="width: 18rem">
-        <h2 class="card-title">Polorized glass</h2>
-        <a href="#">
-          <img
-            src="https://images-na.ssl-images-amazon.com/images/G/01/kindle/journeys/YmRmYmM1ZTUt/YmRmYmM1ZTUt-ZGQ4YjM5OWUt-w379._SY304_CB624791986_.jpg"
-            class="card-img-top"
-            alt="..."
-        /></a>
-        <div class="card-body">
-          <div class="row priceRate" style="display: flex; text-align: left">
-            <h4>Price: $49</h4>
-            <label for="price">Outfit</label>
+        <div class="left2-lists">
+          <img src="rose.png" style="width: 18rem" alt="" />
+          <div class="left2-content-divider">
+            <div class="left2-top-corner">
+              <p class="left2-title">Bank Manager</p>
+              <p class="left2-price">$2,500.00</p>
+            </div>
+            <p class="left2-categories">Bank/Finance Jobs Jobs</p>
+            <p class="content-location">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
+              sapiente quo accusantium possimus quam id qui velit commodi, dolor
+              facilis?
+            </p>
+            <div class="left2-bottom-corner">
+              <p class="left2-categories">Posted:February 18,2020</p>
+              <p class="btn-categories">View Details</p>
+            </div>
           </div>
-          <p class="card-text" style="text-align: left">
-            Description: Some quick example text to build on the card title and
-            make up the bulk of the card's content.<a
-              href="view.html"
-              class="btn btn-warning"
-            >
-              View more</a
-            >
-          </p>
         </div>
-      </div>
-      <!-- CAT_3 -->
-      <div class="cat3 card" style="width: 18rem">
-        <h2 class="card-title">Red rose</h2>
-        <a href="#"> <img src="rose.png" class="card-img-top" alt="..." /></a>
-        <div class="card-body">
-          <div class="row priceRate" style="display: flex; text-align: left">
-            <h4>Price: $19</h4>
-            <label for="price">Flower</label>
+        <div class="left2-lists">
+          <img src="rose.png" style="width: 18rem" alt="" />
+          <div class="left2-content-divider">
+            <div class="left2-top-corner">
+              <p class="left2-title">Hunting Dogs</p>
+              <p class="left2-price">$4,500.00</p>
+            </div>
+            <p class="left2-categories">Animal/Pets Dogs</p>
+            <p class="content-location">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
+              sapiente quo accusantium possimus quam id qui velit commodi, dolor
+              facilis?
+            </p>
+            <div class="left2-bottom-corner">
+              <p class="left2-categories">Posted:February 18,2020</p>
+              <p class="btn-categories">View Details</p>
+            </div>
           </div>
-          <p class="card-text" style="text-align: left">
-            Description: Some quick example text to build on the card title and
-            make up the bulk of the card's content.<a
-              href="view.html"
-              class="btn btn-warning"
-            >
-              View more</a
-            >
-          </p>
         </div>
-      </div>
-      <!-- CAT_4 -->
-      <div class="cat4 card" style="width: 18rem">
-        <h2 class="card-title">Magic globe</h2>
-        <a href="#">
-          <img
-            src="https://m.media-amazon.com/images/I/51YbxJJ-sXL._SY500__AC_SY200_.jpg"
-            class="card-img-top"
-            alt="..."
-        /></a>
-        <div class="card-body">
-          <div class="row priceRate" style="display: flex; text-align: left">
-            <h4>Price: $59</h4>
-            <label for="price">Kids</label>
+        <div class="left2-lists">
+          <img src="rose.png" style="width: 18rem" alt="" />
+          <div class="left2-content-divider">
+            <div class="left2-top-corner">
+              <p class="left2-title">Beautiful Cat For Sale</p>
+              <p class="left2-price">$500.00</p>
+            </div>
+            <p class="left2-categories">Animal/Pets Cats</p>
+            <p class="content-location">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
+              sapiente quo accusantium possimus quam id qui velit commodi, dolor
+              facilis?
+            </p>
+            <div class="left2-bottom-corner">
+              <p class="left2-categories">Posted:February 18,2020</p>
+              <p class="btn-categories">View Details</p>
+            </div>
           </div>
-          <p class="card-text" style="text-align: left">
-            Description: Some quick example text to build on the card title and
-            make up the bulk of the card's content.<a
-              href="view.html"
-              class="btn btn-warning"
-            >
-              View more</a
-            >
-          </p>
         </div>
+        <div class="left2-lists">
+          <img src="rose.png" style="width: 18rem" alt="" />
+          <div class="left2-content-divider">
+            <div class="left2-top-corner">
+              <p class="left2-title">Wrangling Western Shirt</p>
+              <p class="left2-price">$50.00</p>
+            </div>
+            <p class="left2-categories">Clothing - Male Fashion</p>
+            <p class="content-location">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
+              sapiente quo accusantium possimus quam id qui velit commodi, dolor
+              facilis?
+            </p>
+            <div class="left2-bottom-corner">
+              <p class="left2-categories">Posted:February 18,2020</p>
+              <p class="btn-categories">View Details</p>
+            </div>
+          </div>
+        </div>
+        <a href="thanks.html">
+          <p
+            class="left2-continue-read"
+            style="background: orange; color: beige"
+          >
+            PURCHASE
+          </p></a
+        >
       </div>
-      <!-- space right -->
-      <div class="side2"></div>
+      <!-- desc -->
     </div>
-    <!-- footer -->
+
+    <!-- FOOTER -->
     <div class="footer">
       <div class="content">
         <div class="row">
@@ -506,9 +390,7 @@
 
                 <input type="text" placeholder="Enter your email address" />
               </div>
-              <a href="thanks.html"
-                ><button class="subscribe-button">Subscribe</button></a
-              >
+              <button class="subscribe-button">Subscribe</button>
             </div>
           </div>
         </div>
