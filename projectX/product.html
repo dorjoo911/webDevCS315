@@ -32,13 +32,12 @@
   </head>
   <body>
     <div class="navBar">
-      <!-- <div class="p-2 bd-highlight"> -->
       <div class="logo">
         <p style="color: white">
           <a href="mainFrame.html"
             ><img
               src="https://www.etcentric.org/wp-content/uploads/2016/07/Amazon_Logo_Black_bg.jpg"
-              style="max-width: 100px; object-fit: cover"
+              style="max-width: 100px; object-fit: fill"
           /></a>
         </p>
       </div>
@@ -67,9 +66,9 @@
             All
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="product.html">Products</a></li>
+            <li><a class="dropdown-item" href="main.html">Your picks</a></li>
+            <li><a class="dropdown-item" href="view.html">Special</a></li>
           </ul>
         </div>
         <input
@@ -117,18 +116,18 @@
       </div>
       <div class="loginBtn">
         <a
-          href="validation.html"
+          href="register.html"
           style="padding: 10px; text-decoration: none; border: 1px solid blue"
           >Register</a
         >
         <a
-          href="login.html"
+          href="login1.html"
           style="padding: 10px; text-decoration: none; border: 1px solid blue"
           >Login</a
         >
       </div>
       <div class="cart">
-        <a href="cart.html">
+        <a href="main.html">
           <img
             src="https://tse2.mm.bing.net/th?id=OIP.KDAiQNM3izVq2QWBlpw_CAHaDt&pid=Api&P=0&w=326&h=163"
             style="
@@ -153,43 +152,62 @@
         <div class="side1" style="width: 18rem">
           <div class="categories">
             <h6>Department</h6>
-            <a href="#">Electronics</a><br />
-            <a href="#">Electronics</a><br />
-            <a href="#">Kids</a><br />
-            <a href="#">Kids</a>
+            <a href="#" onclick="Electronic()">Electronics</a><br />
+            <a href="#" onclick="Electronic()">Electronics</a><br />
+            <a href="#" onclick="Clothing()">Clothing</a><br />
+            <a href="#" onclick="Clothing()">Clothing</a>
           </div>
           <br />
 
           <div class="ratings">
             <h6>Ratings</h6>
-            <a href="#"> & up</a><br />
-            <a href="#"> & up</a><br />
-            <a href="#"> & up</a><br />
-            <a href="#"> & up</a>
+            <a href="#" onclick="Ratefive()"
+              ><img
+                src="https://s3.amazonaws.com/hoth.bizango/images/414129/one-star_rating_feature.jpg"
+                style="width: 100px"
+              />
+              & up</a
+            ><br />
+            <a href="#" onclick="RateUnderThree()"
+              ><img
+                src="http://thenewswheel.com/wp-content/uploads/2015/01/2.0-out-of-5-stars-rating.png"
+                style="width: 100px"
+              />
+              & up</a
+            ><br />
+            <a href="#" onclick="RateUnderThree()"
+              ><img
+                src="https://static.wixstatic.com/media/aeae34_7be09a030be845cca499789210eca3a4~mv2.png/v1/fit/w_850,h_162,al_c,q_80/file.pngx&up"
+                style="max-width: 90px; object-fit: cover"
+              />
+              & up</a
+            ><br />
+            <a href="#" onclick="RateAboveFour()"
+              ><img
+                src="https://clipartmag.com/images/5-star-rating-clipart-43.jpg"
+                style="max-width: 90px; object-fit: cover"
+              />
+              & up</a
+            >
           </div>
           <br />
 
           <div class="sortPrice">
             <h6>Price</h6>
-            <a href="#">under $25</a><br />
-            <a href="#">under $25</a><br />
             <a href="#" onclick="sortAscendingbyPrice()">low to high</a><br />
+            <a href="#" onclick="PriceUnderHundered()">$100 & Below</a>
             <a href="#" onclick="PriceAboveHundered()">$100 & Above</a>
+            <a href="#" onclick="PriceAboveTwoHunderedFifty()">$250 up</a><br />
+            <a href="#" onclick="PriceAboveFiveHundered()">$500 & up</a><br />
           </div>
           <br />
 
           <div class="filterQua">
             <h6>Quantidy</h6>
-            <a href="#">under $25</a><br />
-            <a href="#">under $25</a><br />
-            <a href="#">under $25</a><br />
-            <a href="#">$100 & Above</a>
-            <!-- <button type="button" onclick="PriceAboveHundered()">
-              Price Above hundred
-            </button>
-            <button type="button" onclick="sortAscendingbyPrice()">
-              Sort Ascending
-            </button> -->
+            <a href="#" onclick="sortAscendingbyPrice()">under $25</a><br />
+            <a href="#" onclick="sortAscendingbyPrice()">under $25</a><br />
+            <a href="#" onclick="sortAscendingbyPrice()">under $25</a><br />
+            <a href="#" onclick="sortAscendingbyPrice()">$100 & Above</a>
           </div>
         </div>
       </div>
@@ -295,7 +313,9 @@
 
                 <input type="text" placeholder="Enter your email address" />
               </div>
-              <button class="subscribe-button">Subscribe</button>
+              <a href="thanks.html"
+                ><button class="subscribe-button">Subscribe</button></a
+              >
             </div>
           </div>
         </div>

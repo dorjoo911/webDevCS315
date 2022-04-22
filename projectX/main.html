@@ -26,8 +26,8 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="cart.css" />
-    <script src="app.js"></script>
+    <link rel="stylesheet" href="cart1.css" />
+    <script src="app2.js"></script>
   </head>
   <body>
     <div class="navBar">
@@ -141,46 +141,23 @@
     </div>
 
     <div class="container" style="display: flex; margin: 20px">
-      <!-- Side_1 -->
-      <div class="side1" style="width: 18rem">
-        <div class="categories">
-          <h6>Department</h6>
-          <a href="#">Electronics</a><br />
-          <a href="#">Electronics</a><br />
-          <a href="#">Kids</a><br />
-          <a href="#">Kids</a>
-        </div>
-        <br />
+      <div class="left-2" style="width: 60rem">
+        <section class="container content-section">
+          <h2 class="section-header">Amazon cart</h2>
 
-        <div class="ratings">
-          <h6>Ratings</h6>
-          <a href="#"> & up</a><br />
-          <a href="#"> & up</a><br />
-          <a href="#"> & up</a><br />
-          <a href="#"> & up</a>
-        </div>
-        <br />
-
-        <div class="sortPrice">
-          <h6>Price</h6>
-          <a href="#">under $25</a><br />
-          <a href="#">under $25</a><br />
-          <a href="#">under $25</a><br />
-          <a href="#">$100 & Above</a>
-        </div>
-        <br />
-
-        <div class="filterQua">
-          <h6>Quantidy</h6>
-          <a href="#">under $25</a><br />
-          <a href="#">under $25</a><br />
-          <a href="#">under $25</a><br />
-          <a href="#">$100 & Above</a>
-        </div>
+          <div class="cart-items"></div>
+          <div class="cart-total">
+            <strong class="cart-total-title">Total</strong>
+            <span class="cart-total-price">$0</span>
+          </div>
+          <button class="btn btn-warning btn-purchase" type="button">
+            PURCHASE
+          </button>
+        </section>
       </div>
       <!-- CAT_1 -->
       <div class="left-2">
-        <p class="title">In Cart</p>
+        <h4 class="title">Your viewed items:</h4>
         <div class="left2-lists">
           <img class="left2-image" src="rose.png" style="width: 18rem" alt="" />
           <div class="left2-content-divider">
@@ -200,12 +177,8 @@
 
               <!-- </div> -->
             </div>
-            <button
-              class="btn btn-danger shop-item-button"
-              type="button"
-              style="width: 100%"
-            >
-              remove
+            <button class="btn btn-warning shop-item-button" type="button">
+              ADD TO CART
             </button>
           </div>
         </div>
@@ -231,12 +204,8 @@
               <p class="left2-categories">Posted:February 18,2020</p>
               <p class="btn-categories">View Details</p>
             </div>
-            <button
-              class="btn btn-danger shop-item-button"
-              type="button"
-              style="width: 100%"
-            >
-              remove
+            <button class="btn btn-warning shop-item-button" type="button">
+              ADD TO CART
             </button>
           </div>
 
@@ -268,12 +237,8 @@
               <p class="left2-categories">Posted:February 18,2020</p>
               <p class="btn-categories">View Details</p>
             </div>
-            <button
-              class="btn btn-danger shop-item-button"
-              type="button"
-              style="width: 100%"
-            >
-              remove
+            <button class="btn btn-warning shop-item-button" type="button">
+              ADD TO CART
             </button>
           </div>
           <!-- <div class="shop-item-detail">
@@ -304,12 +269,8 @@
               <p class="left2-categories">Posted:February 18,2020</p>
               <p class="btn-categories">View Details</p>
             </div>
-            <button
-              class="btn btn-danger shop-item-button"
-              type="button"
-              style="width: 100%"
-            >
-              remove
+            <button class="btn btn-warning shop-item-button" type="button">
+              ADD TO CART
             </button>
           </div>
           <!-- <div class="shop-item-detail">
@@ -340,12 +301,8 @@
               <p class="left2-categories">Posted:February 18,2020</p>
               <p class="btn-categories">View Details</p>
             </div>
-            <button
-              class="btn btn-danger shop-item-button"
-              type="button"
-              style="width: 100%"
-            >
-              remove
+            <button class="btn btn-warning shop-item-button" type="button">
+              ADD TO CART
             </button>
           </div>
           <!-- <div class="shop-item-detail">
@@ -359,7 +316,7 @@
             class="left2-continue-read"
             style="background: orange; color: beige"
           >
-            PURCHASE
+            BUY ALL
           </p></a
         >
       </div>

@@ -15,7 +15,6 @@ let tableArray = [
     role: "manager",
   },
 ];
-
 // localStorage.setItem("tableArray", JSON.stringify(tableArray));
 
 let dataBase = [
@@ -45,12 +44,36 @@ let dataBase = [
 ];
 
 localStorage.setItem("dataBase", JSON.stringify(dataBase));
-
+/* -------------- register -------------- */
+// (function () {
+//   "use strict";
+//   window.addEventListener(
+//     "load",
+//     function () {
+//       var forms = document.querySelectorAll(".needs-validation");
+//       Array.prototype.slice.call(forms).forEach(function (form) {
+//         form.addEventListener(
+//           "submit",
+//           function (event) {
+//             if (!form.checkValidity()) {
+//               event.preventDefault();
+//               event.stopPropagation();
+//             }
+//             form.classList.add("was-validated");
+//           },
+//           false
+//         );
+//       });
+//     },
+//     false
+//   );
+// })();
 /* ------------ preview.html ------------ */
 
 const urlParams = new URLSearchParams(window.location.search);
 
 let lableEmail = document.getElementsByTagName("label")[0];
+console.log("labelEmail :>> ", labelEmail);
 lableEmail.innerHTML = lableEmail.innerHTML + ":  " + urlParams.get("email");
 
 let lableTwo = document.getElementsByTagName("label")[1];
